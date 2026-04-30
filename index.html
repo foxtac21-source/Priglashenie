@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Пригласительный шаблон | Стекло и слои</title>
+  <title>Пригласительный шаблон | Новая гамма</title>
   <style>
     * {
       margin: 0;
@@ -11,9 +11,9 @@
       box-sizing: border-box;
     }
 
-    /* Общий темный фон */
+    /* ОБЩИЙ ТЁМНЫЙ ФОН — теперь #67869A (тёмно-синий) */
     body {
-      background-color: #0F1012;   /* глубокий темный, но мягкий фон, чтобы "темный общий фон" был выразительным */
+      background-color: #67869A;
       font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
       line-height: 1.4;
       min-height: 100vh;
@@ -23,23 +23,21 @@
       padding: 24px 20px;
     }
 
-    /* Контейнер-обёртка — для максимальной ширины на ПК и отзывчивости */
     .wrapper {
       max-width: 1300px;
       width: 100%;
       margin: 0 auto;
     }
 
-    /* Центральный блок с розово-бежевым доп. фоном «на тёмном фоне лежит лист» */
+    /* ВНУТРЕННИЙ СЛОЙ (лист) — теперь #E7E0D8 (более коричневый бежевый) */
     .beige-card {
-      background-color: #F4EBE9;   /* розовый бежевый — основной дополнительный фон */
-      border-radius: 48px 32px 48px 32px;  /* чуть живая, но элегантная форма */
-      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+      background-color: #E7E0D8;
+      border-radius: 48px 32px 48px 32px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
       padding: 2rem;
       transition: all 0.2s ease;
     }
 
-    /* Внутренняя сетка: слева – контентная зона / справа – пример стекла (но для адаптации флексы) */
     .invite-layout {
       display: flex;
       flex-wrap: wrap;
@@ -47,7 +45,6 @@
       align-items: stretch;
     }
 
-    /* Левая колонка: пример кнопок, текстовое пространство (чисто шаблон) */
     .content-area {
       flex: 1.2;
       min-width: 220px;
@@ -56,7 +53,6 @@
       gap: 2rem;
     }
 
-    /* Правая колонка: под стеклянный прямоугольник */
     .glass-area {
       flex: 0.9;
       min-width: 240px;
@@ -65,64 +61,49 @@
       justify-content: center;
     }
 
-    /* Полупрозрачный прямоугольник с эффектом стекла (голубой #C6D1D9 + стекло) */
+    /* СТЕКЛЯННЫЙ ПРЯМОУГОЛЬНИК — на основе голубого #C6D1D9 */
     .glass-panel {
-      background: rgba(198, 209, 217, 0.28);   /* голубой цвет с высокой прозрачностью + основа */
+      background: rgba(198, 209, 217, 0.3);
       backdrop-filter: blur(12px) saturate(180%);
       -webkit-backdrop-filter: blur(12px) saturate(180%);
       border-radius: 42px;
-      border: 1px solid rgba(198, 209, 217, 0.55);
+      border: 1px solid rgba(198, 209, 217, 0.6);
       box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.2), 0 0 0 0.5px rgba(255, 255, 255, 0.2) inset;
       width: 100%;
       padding: 2rem 1.8rem;
-      transition: transform 0.2s;
       text-align: center;
-      /* доп. семпл текста, чтобы показать эффект, но без перегрузки — просто стиль */
     }
 
-    /* Содержимое внутри стекла – легкий текст-заполнитель, визуально подчеркивает эффект */
     .glass-panel p {
       font-size: 1rem;
-      color: #1C2C34;
+      color: #2C3E4E;
       font-weight: 500;
-      letter-spacing: -0.2px;
       text-shadow: 0 1px 1px rgba(255,255,255,0.3);
-      backdrop-filter: blur(2px);
     }
 
     .glass-panel .small-caption {
       font-size: 0.85rem;
-      opacity: 0.75;
+      opacity: 0.8;
       margin-top: 12px;
       font-weight: 400;
     }
 
-    /* Блок кнопок (пример) – белый цвет #F1F1F1 */
-    .buttons-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 0.5rem;
-    }
-
-    /* Стиль кнопок именно белый (из палитры) */
+    /* КНОПКИ — белый #F1F1F1 */
     .btn-sample {
-      background-color: #F1F1F1;   /* белый из вашей палитры */
+      background-color: #F1F1F1;
       border: none;
       padding: 14px 32px;
       border-radius: 60px;
       font-size: 1rem;
       font-weight: 600;
-      color: #2c3e3f;
+      color: #3A4F5C;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
       font-family: inherit;
       letter-spacing: 0.3px;
-      backdrop-filter: blur(2px);
     }
 
-    /* Эффект наведения для интерактива (кнопки ничего не делают, только визуал) */
     .btn-sample:hover {
       background-color: #ffffff;
       transform: translateY(-3px);
@@ -133,44 +114,48 @@
       transform: translateY(1px);
     }
 
-    /* декоративный блок для заглушки – текст, чтобы шаблон выглядел уравновешенно */
+    .buttons-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 0.5rem;
+    }
+
     .placeholder-text {
-      background: rgba(103, 134, 154, 0.15);
+      background: rgba(244, 235, 233, 0.5);
       border-radius: 28px;
       padding: 1.2rem 1.5rem;
-      border-left: 5px solid #67869A;  /* темный синий акцент */
+      border-left: 5px solid #67869A;
     }
 
     .placeholder-text h3 {
       font-size: 1.4rem;
       font-weight: 500;
-      color: #2B3E45;
+      color: #3A4F5C;
       margin-bottom: 12px;
       letter-spacing: -0.3px;
     }
 
     .placeholder-text p {
-      color: #3E4F57;
+      color: #4A5F6A;
       line-height: 1.4;
       font-size: 0.95rem;
     }
 
-    /* дополнительные элементы — легкий разделитель с бежевым более коричневым */
     .accent-border {
       width: 100%;
       height: 4px;
-      background-color: #E7E0D8;  /* более коричневый бежевый */
+      background-color: #C6D1D9;
       border-radius: 4px;
       margin: 12px 0 8px;
     }
 
-    /* нижний колонтитул для иллюстрации (чисто стилистика) */
     .info-note {
       margin-top: 2rem;
       text-align: center;
       font-size: 0.75rem;
-      color: #acb8bf;
-      background: rgba(0, 0, 0, 0.3);
+      color: #2C3E2E;
+      background: rgba(244, 235, 233, 0.5);
       display: inline-block;
       width: auto;
       padding: 0.4rem 1rem;
@@ -178,7 +163,28 @@
       backdrop-filter: blur(2px);
     }
 
-    /* адаптивность мобильная vs пк */
+    .dark-swatch {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .color-dot {
+      width: 28px;
+      height: 28px;
+      background-color: #67869A;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(255,255,240,0.3);
+    }
+
+    .color-label {
+      font-size: 0.8rem;
+      color: #4A5F6A;
+      font-weight: 500;
+    }
+
     @media (max-width: 780px) {
       body {
         padding: 16px;
@@ -208,7 +214,6 @@
       }
     }
 
-    /* Десктопная версия дополнительная эстетика: тень и ширина */
     @media (min-width: 1024px) {
       .beige-card {
         padding: 2.5rem;
@@ -217,82 +222,52 @@
         gap: 2.2rem;
       }
     }
-
-    /* Небольшая декоративная точка темно-синего цвета (акцент) */
-    .dark-swatch {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .color-dot {
-      width: 28px;
-      height: 28px;
-      background-color: #67869A;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px rgba(255,255,240,0.3);
-    }
-    .color-dot-light {
-      background-color: #C6D1D9;
-    }
-    .color-label {
-      font-size: 0.8rem;
-      color: #2F4A5C;
-      font-weight: 500;
-    }
   </style>
 </head>
 <body>
 <div class="wrapper">
-  <!-- Основной розово-бежевый блок – он лежит поверх темного фона (на темный положили лист) -->
   <div class="beige-card">
     <div class="invite-layout">
-      <!-- Левая область: контент (пригласительное пространство) + пример кнопок -->
       <div class="content-area">
-        <!-- Заглушка: подпись к пригласительному тексту (для ощущения шаблона) -->
         <div class="placeholder-text">
           <h3>Пригласительный шаблон</h3>
-          <p>Тёмный общий фон + розовый бежевый слой — как отдельный лист.<br>
-          Белые кнопки и стеклянный эффект на основе #C6D1D9.<br>
-          Все элементы готовы для наполнения.</p>
+          <p>Общий фон — тёмно-синий #67869A.<br>
+          Внутренний слой — коричневый бежевый #E7E0D8.<br>
+          Стеклянный прямоугольник на основе #C6D1D9.<br>
+          Кнопки — белые #F1F1F1.</p>
           <div class="accent-border"></div>
-          <p style="font-size:0.85rem; margin-top: 8px;">Остались чистые текстовые блоки под ваше содержание.</p>
+          <p style="font-size:0.85rem; margin-top: 8px;">Структура сохранена, обновлена только цветовая гамма.</p>
         </div>
         
-        <!-- Пример двух кнопок (просто существуют, ничего не делают) -->
         <div class="buttons-row">
           <button class="btn-sample" type="button">Принять приглашение</button>
           <button class="btn-sample" type="button">Подробнее</button>
           <button class="btn-sample" type="button">RSVP</button>
         </div>
 
-        <!-- Небольшая дополнительная палитра ссылка на основные цвета (просто для информации) -->
         <div class="dark-swatch">
           <div class="color-dot"></div>
-          <span class="color-label">темный синий #67869A — акцент</span>
-          <div class="color-dot color-dot-light" style="margin-left: 8px;"></div>
+          <span class="color-label">тёмно-синий #67869A</span>
+          <div style="width: 28px; height: 28px; background-color: #C6D1D9; border-radius: 50%; margin-left: 8px;"></div>
           <span class="color-label">голубой стекла #C6D1D9</span>
         </div>
 
-        <!-- крошечный текст: показать еще один цвет бежевый более коричневый -->
         <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 8px;">
-          <div style="width: 24px; height: 24px; background-color: #E7E0D8; border-radius: 8px;"></div>
-          <span style="font-size: 0.75rem; color: #3d4f57;">#E7E0D8 — бежевый коричневый (линии)</span>
-          <div style="width: 24px; height: 24px; background-color: #F4EBE9; border-radius: 8px; margin-left: 4px;"></div>
-          <span style="font-size: 0.75rem; color: #3d4f57;">розово-бежевый фон</span>
+          <div style="width: 24px; height: 24px; background-color: #E7E0D8; border-radius: 8px; border: 1px solid #aaa;"></div>
+          <span style="font-size: 0.75rem; color: #4A5F6A;">#E7E0D8 — внутренний слой</span>
+          <div style="width: 24px; height: 24px; background-color: #F4EBE9; border-radius: 8px;"></div>
+          <span style="font-size: 0.75rem; color: #4A5F6A;">розово-бежевый акцент</span>
         </div>
       </div>
 
-      <!-- Правая часть: полупрозрачный прямоугольник с эффектом стекла (голубой, прозрачный) -->
       <div class="glass-area">
         <div class="glass-panel">
-          <p style="font-size: 1.35rem; font-weight: 600; letter-spacing: -0.2px;">✨ стекло ✨</p>
-          <p>Эффект blur на основе <strong style="color:#2c5a6e;">#C6D1D9</strong></p>
+          <p style="font-size: 1.35rem; font-weight: 600;">✨ стекло ✨</p>
+          <p>Эффект на основе <strong>#C6D1D9</strong></p>
           <div class="small-caption">
             полупрозрачный блок<br>
             «голубое стекло»
           </div>
-          <!-- декоративная вставка - имитация контента для демонстрации стиля -->
           <div style="margin-top: 16px;">
             <div style="height: 3px; width: 45px; background: rgba(103,134,154,0.5); margin: 8px auto; border-radius: 4px;"></div>
             <p style="font-size: 0.7rem; opacity: 0.8;">пример места для вашего текста</p>
@@ -301,17 +276,15 @@
       </div>
     </div>
 
-    <!-- нижняя линия (декор) — дополнительный полупрозрачный разделитель, не мешает -->
     <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; margin-top: 30px;">
       <div class="info-note">
-        🎫 мобильная | ПК адаптация | фон тёмный + слой #F4EBE9
+        🎨 новая гамма | фон #67869A + слой #E7E0D8
       </div>
-      <div class="info-note" style="background: rgba(231,224,216,0.3);">
+      <div class="info-note">
         #C6D1D9 стеклянный прямоугольник
       </div>
     </div>
   </div>
-  <!-- конец блока beige-card -->
 </div>
 </body>
 </html>
