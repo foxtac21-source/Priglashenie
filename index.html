@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Пригласительный шаблон | Вариант 2 — инверсия</title>
+  <title>Пригласительный шаблон | Вариант 2</title>
   <style>
     * {
       margin: 0;
@@ -11,9 +11,9 @@
       box-sizing: border-box;
     }
 
-    /* ОБЩИЙ ТЁМНЫЙ ФОН — теперь розово-бежевый #F4EBE9 (светлый, но насыщенный) */
+    /* ОБЩИЙ ТЁМНЫЙ ФОН — тёмно-синий #67869A */
     body {
-      background-color: #F4EBE9;
+      background-color: #67869A;
       font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
       line-height: 1.4;
       min-height: 100vh;
@@ -29,11 +29,11 @@
       margin: 0 auto;
     }
 
-    /* ВНУТРЕННИЙ СЛОЙ (лист) — тёмно-синий #67869A */
+    /* ВНУТРЕННИЙ СЛОЙ (лист) — розово-бежевый #F4EBE9 */
     .beige-card {
-      background-color: #67869A;
+      background-color: #F4EBE9;
       border-radius: 48px 32px 48px 32px;
-      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
       padding: 2rem;
       transition: all 0.2s ease;
     }
@@ -61,14 +61,14 @@
       justify-content: center;
     }
 
-    /* СТЕКЛЯННЫЙ ПРЯМОУГОЛЬНИК — коричневый бежевый #E7E0D8 с эффектом стекла (не голубой!) */
+    /* СТЕКЛЯННЫЙ ПРЯМОУГОЛЬНИК — голубой #C6D1D9 с эффектом стекла */
     .glass-panel {
-      background: rgba(231, 224, 216, 0.35);
+      background: rgba(198, 209, 217, 0.35);
       backdrop-filter: blur(12px) saturate(180%);
       -webkit-backdrop-filter: blur(12px) saturate(180%);
       border-radius: 42px;
-      border: 1px solid rgba(231, 224, 216, 0.7);
-      box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.25), 0 0 0 0.5px rgba(255, 255, 255, 0.2) inset;
+      border: 1px solid rgba(198, 209, 217, 0.65);
+      box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.2), 0 0 0 0.5px rgba(255, 255, 255, 0.25) inset;
       width: 100%;
       padding: 2rem 1.8rem;
       text-align: center;
@@ -96,7 +96,7 @@
       border-radius: 60px;
       font-size: 1rem;
       font-weight: 600;
-      color: #3A4F5C;
+      color: #4A5F6A;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -107,7 +107,7 @@
     .btn-sample:hover {
       background-color: #ffffff;
       transform: translateY(-3px);
-      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.15);
     }
 
     .btn-sample:active {
@@ -121,24 +121,24 @@
       margin-top: 0.5rem;
     }
 
-    /* Блок с текстом — голубой акцент #C6D1D9 */
+    /* Блок с текстом — с акцентом из коричневого бежевого #E7E0D8 */
     .placeholder-text {
-      background: rgba(198, 209, 217, 0.2);
+      background: rgba(231, 224, 216, 0.4);
       border-radius: 28px;
       padding: 1.2rem 1.5rem;
-      border-left: 5px solid #C6D1D9;
+      border-left: 5px solid #E7E0D8;
     }
 
     .placeholder-text h3 {
       font-size: 1.4rem;
       font-weight: 500;
-      color: #F1F1F1;
+      color: #3A4F5C;
       margin-bottom: 12px;
       letter-spacing: -0.3px;
     }
 
     .placeholder-text p {
-      color: #E7E0D8;
+      color: #4A5F6A;
       line-height: 1.4;
       font-size: 0.95rem;
     }
@@ -146,7 +146,7 @@
     .accent-border {
       width: 100%;
       height: 4px;
-      background-color: #C6D1D9;
+      background-color: #E7E0D8;
       border-radius: 4px;
       margin: 12px 0 8px;
     }
@@ -155,8 +155,8 @@
       margin-top: 2rem;
       text-align: center;
       font-size: 0.75rem;
-      color: #F4EBE9;
-      background: rgba(244, 235, 233, 0.2);
+      color: #2C3E2E;
+      background: rgba(231, 224, 216, 0.5);
       display: inline-block;
       width: auto;
       padding: 0.4rem 1rem;
@@ -175,14 +175,14 @@
     .color-dot {
       width: 28px;
       height: 28px;
-      background-color: #F4EBE9;
+      background-color: #67869A;
       border-radius: 50%;
       box-shadow: 0 0 0 2px rgba(255,255,240,0.3);
     }
 
     .color-label {
       font-size: 0.8rem;
-      color: #E7E0D8;
+      color: #4A5F6A;
       font-weight: 500;
     }
 
@@ -231,13 +231,13 @@
     <div class="invite-layout">
       <div class="content-area">
         <div class="placeholder-text">
-          <h3>Пригласительный шаблон — Вариант 2 (инверсия)</h3>
-          <p>Общий фон — розово-бежевый #F4EBE9.<br>
-          Внутренний слой — тёмно-синий #67869A.<br>
-          Стеклянный прямоугольник — коричневый бежевый #E7E0D8.<br>
-          Акценты — голубой #C6D1D9.</p>
+          <h3>Пригласительный шаблон — Вариант 2</h3>
+          <p>Общий фон — тёмно-синий #67869A.<br>
+          Внутренний слой — розово-бежевый #F4EBE9.<br>
+          Стеклянный прямоугольник на основе #C6D1D9.<br>
+          Акценты — коричневый бежевый #E7E0D8.</p>
           <div class="accent-border"></div>
-          <p style="font-size:0.85rem; margin-top: 8px;">Цвета поменялись ролями — теперь тёмная карточка на светлом фоне.</p>
+          <p style="font-size:0.85rem; margin-top: 8px;">Свежая, мягкая комбинация — всё из вашей палитры.</p>
         </div>
         
         <div class="buttons-row">
@@ -248,29 +248,29 @@
 
         <div class="dark-swatch">
           <div class="color-dot"></div>
-          <span class="color-label">фон #F4EBE9 (розово-бежевый)</span>
-          <div style="width: 28px; height: 28px; background-color: #67869A; border-radius: 50%; margin-left: 8px;"></div>
-          <span class="color-label">карточка #67869A (тёмно-синий)</span>
+          <span class="color-label">тёмно-синий #67869A</span>
+          <div style="width: 28px; height: 28px; background-color: #F4EBE9; border-radius: 50%; margin-left: 8px; border: 1px solid #ccc;"></div>
+          <span class="color-label">розово-бежевый #F4EBE9</span>
         </div>
 
         <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 8px;">
-          <div style="width: 24px; height: 24px; background-color: #E7E0D8; border-radius: 8px;"></div>
-          <span style="font-size: 0.75rem; color: #E7E0D8;">стекло #E7E0D8 (коричневый бежевый)</span>
-          <div style="width: 24px; height: 24px; background-color: #C6D1D9; border-radius: 8px; margin-left: 4px;"></div>
-          <span style="font-size: 0.75rem; color: #E7E0D8;">акцент #C6D1D9</span>
+          <div style="width: 24px; height: 24px; background-color: #C6D1D9; border-radius: 8px;"></div>
+          <span style="font-size: 0.75rem; color: #4A5F6A;">голубой #C6D1D9 — стекло</span>
+          <div style="width: 24px; height: 24px; background-color: #E7E0D8; border-radius: 8px; margin-left: 4px;"></div>
+          <span style="font-size: 0.75rem; color: #4A5F6A;">коричневый бежевый #E7E0D8</span>
         </div>
       </div>
 
       <div class="glass-area">
         <div class="glass-panel">
           <p style="font-size: 1.35rem; font-weight: 600;">✨ стекло ✨</p>
-          <p>Эффект на основе <strong>#E7E0D8</strong> (не голубой!)</p>
+          <p>Эффект на основе <strong>#C6D1D9</strong></p>
           <div class="small-caption">
             полупрозрачный блок<br>
-            «коричнево-бежевое стекло»
+            «голубое стекло»
           </div>
           <div style="margin-top: 16px;">
-            <div style="height: 3px; width: 45px; background: rgba(198,209,217,0.5); margin: 8px auto; border-radius: 4px;"></div>
+            <div style="height: 3px; width: 45px; background: rgba(103,134,154,0.5); margin: 8px auto; border-radius: 4px;"></div>
             <p style="font-size: 0.7rem; opacity: 0.8;">пример места для вашего текста</p>
           </div>
         </div>
@@ -279,10 +279,10 @@
 
     <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; margin-top: 30px;">
       <div class="info-note">
-        🎨 вариант 2 — инверсия | фон #F4EBE9 + карточка #67869A
+        🎨 вариант 2 | фон #67869A + слой #F4EBE9
       </div>
       <div class="info-note">
-        🪟 стекло #E7E0D8 (тёплое) | акценты #C6D1D9
+        🪟 стекло #C6D1D9 | акценты #E7E0D8
       </div>
     </div>
   </div>
