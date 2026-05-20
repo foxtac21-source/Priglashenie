@@ -36,16 +36,16 @@
       transition: all 0.2s;
     }
 
-    /* ===== ШАПКА = ФОТО МЫ.png с плавным переходом в фон ===== */
+    /* ===== ШАПКА = ФОТО МЫ.png, обрезано по высоте ===== */
     .hero-section {
       position: relative;
       margin-bottom: 1.5rem;
     }
     .hero-image {
       width: 100%;
-      height: auto;
-      min-height: 300px;
+      height: 220px;
       object-fit: cover;
+      object-position: center 30%;
       border-radius: 40px;
       display: block;
       box-shadow: none;
@@ -57,7 +57,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 120px;
+      height: 80px;
       background: linear-gradient(to bottom, rgba(244, 235, 233, 0) 0%, #F4EBE9 100%);
       pointer-events: none;
       border-radius: 0 0 40px 40px;
@@ -98,7 +98,6 @@
       text-align: center;
     }
 
-    /* подпись под фото (но фото уже в шапке, поэтому этот блок можно убрать или оставить приглашение) */
     .invite-block {
       background: rgba(231, 224, 216, 0.45);
       border-radius: 40px;
@@ -302,7 +301,10 @@
         padding: 1.2rem;
       }
       .hero-image {
-        min-height: 200px;
+        height: 150px;
+      }
+      .hero-section::after {
+        height: 50px;
       }
       .names-calligraphy h1 {
         font-size: 2.5rem;
@@ -329,7 +331,7 @@
 <div class="wrapper">
   <div class="beige-card">
     
-    <!-- ШАПКА = ФОТО МЫ.png с плавным переходом в фон -->
+    <!-- ШАПКА = ФОТО МЫ.png, обрезано по высоте (220px на десктопе) -->
     <div class="hero-section">
       <img class="hero-image" src="МЫ.png" alt="Артём и Анастасия">
     </div>
