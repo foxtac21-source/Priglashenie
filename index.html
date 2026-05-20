@@ -16,7 +16,8 @@
       font-family: 'Playfair Display', 'Georgia', serif;
       line-height: 1.45;
       min-height: 100vh;
-      padding: 24px 20px;
+      padding: 0;
+      margin: 0;
     }
 
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500&family=Great+Vibes&display=swap');
@@ -24,6 +25,7 @@
     .wrapper {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 24px 20px;
     }
 
     .beige-card {
@@ -34,7 +36,7 @@
       transition: all 0.2s;
     }
 
-    /* ===== ШАПКА — ТОЛЬКО ВАША КАРТИНКА ===== */
+    /* ===== ШАПКА — БЕЗ ТЕНИ, ПОЛНОЕ СЛИЯНИЕ ===== */
     .hero-section {
       position: relative;
       margin-bottom: 1.5rem;
@@ -46,9 +48,9 @@
       object-fit: cover;
       border-radius: 40px;
       display: block;
-      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.2);
+      box-shadow: none;
     }
-    /* плавный переход от картинки к сайту */
+    /* плавный переход от картинки к сайту — слияние с бежевым фоном */
     .hero-section::after {
       content: '';
       position: absolute;
@@ -56,12 +58,12 @@
       left: 0;
       width: 100%;
       height: 100px;
-      background: linear-gradient(to bottom, rgba(244, 235, 233, 0) 10%, #F4EBE9 95%);
+      background: linear-gradient(to bottom, rgba(244, 235, 233, 0) 0%, #F4EBE9 100%);
       pointer-events: none;
       border-radius: 0 0 40px 40px;
     }
 
-    /* ===== РУКОПИСНЫЕ ИМЕНА СРАЗУ ПОД ШАПКОЙ ===== */
+    /* ===== РУКОПИСНЫЕ ИМЕНА ПОД ШАПКОЙ ===== */
     .names-calligraphy {
       text-align: center;
       margin: 0.5rem 0 1.5rem 0;
@@ -72,7 +74,6 @@
       font-weight: 400;
       color: #3A4F5C;
       letter-spacing: 2px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
     }
     .ampersand {
       font-family: 'Great Vibes', cursive;
@@ -80,7 +81,7 @@
       color: #8B6B5B;
     }
 
-    /* заголовок ПРИГЛАШЕНИЕ НА СВАДЬБУ */
+    /* заголовок */
     .main-title {
       text-align: center;
       font-family: 'Playfair Display', serif;
@@ -98,7 +99,7 @@
       text-align: center;
     }
 
-    /* фото молодоженов + подпись */
+    /* фото молодоженов */
     .couple-block {
       background: rgba(231, 224, 216, 0.45);
       border-radius: 40px;
@@ -124,8 +125,6 @@
       display: inline-block;
       padding: 8px 28px;
       border-radius: 60px;
-      letter-spacing: 0.2px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
 
     /* таймер */
@@ -135,7 +134,6 @@
       padding: 1.8rem;
       text-align: center;
       margin-bottom: 2rem;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
     }
     .timer-head {
       font-size: 1.6rem;
@@ -184,12 +182,9 @@
       font-size: 0.95rem;
       color: #3E5A68;
       cursor: pointer;
-      transition: 0.2s;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
     }
     .map-btn:hover {
       background: white;
-      transform: translateY(-2px);
     }
     .map-slide {
       overflow: hidden;
@@ -209,13 +204,12 @@
       border: 1px solid #C6D1D9;
     }
 
-    /* программа - картинка */
+    /* программа */
     .schedule-card {
       margin: 2rem 0;
       background: #E9E0DA;
       border-radius: 48px;
       padding: 1rem;
-      box-shadow: 0 10px 25px -8px rgba(0,0,0,0.1);
     }
     .schedule-title {
       font-family: 'Playfair Display', serif;
@@ -229,8 +223,6 @@
       width: 100%;
       border-radius: 36px;
       display: block;
-      background: #F4EBE9;
-      box-shadow: 0 10px 18px rgba(0,0,0,0.1);
     }
 
     /* форма */
@@ -265,7 +257,6 @@
       background: #FDF9F6;
       font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
-      transition: 0.2s;
     }
     textarea {
       border-radius: 28px;
@@ -313,7 +304,7 @@
     }
 
     @media (max-width: 720px) {
-      body {
+      .wrapper {
         padding: 12px;
       }
       .beige-card {
@@ -347,12 +338,12 @@
 <div class="wrapper">
   <div class="beige-card">
     
-    <!-- ===== САМЫЙ ВЕРХ: ВАШ ФАЙЛ шапка.png ===== -->
+    <!-- ШАПКА: ваш файл шапка.png, без тени, с плавным переходом -->
     <div class="hero-section">
-      <img class="hero-image" src="шапка.PNG" alt="шапка свадьбы">
+      <img class="hero-image" src="шапка.png" alt="шапка">
     </div>
 
-    <!-- ===== КРАСИВЫЕ РУКОПИСНЫЕ ИМЕНА СРАЗУ ПОД ШАПКОЙ ===== -->
+    <!-- Имена под шапкой -->
     <div class="names-calligraphy">
       <h1>Артём <span class="ampersand">&</span> Анастасия</h1>
     </div>
@@ -361,18 +352,18 @@
       <div class="main-title">ПРИГЛАШЕНИЕ НА СВАДЬБУ</div>
     </div>
 
-    <!-- Блок 1: фото молодоженов + подпись -->
+    <!-- Блок 1: фото молодоженов -->
     <div class="couple-block">
-      <img class="couple-img" src="https://placehold.co/1200x700/CFC3B5/4A5F6A?text=Наше+фото" alt="Артём и Анастасия">
+      <img class="couple-img" src="мы.png" alt="Артём и Анастасия">
       <div class="invite-text">
         Приглашаем вас принять участие в создании нашей семьи
       </div>
     </div>
 
-    <!-- Блок 2: Таймер до 26 августа 2026 14:00 -->
+    <!-- Блок 2: таймер до 26 августа 2026 14:00 -->
     <div class="timer-area">
       <div class="timer-head">До торжества осталось</div>
-      <div class="timer-flex" id="countdownWrap">
+      <div class="timer-flex">
         <div class="timer-item"><div class="timer-num" id="days">00</div><div class="timer-label">Дней</div></div>
         <div class="timer-item"><div class="timer-num" id="hours">00</div><div class="timer-label">Часов</div></div>
         <div class="timer-item"><div class="timer-num" id="minutes">00</div><div class="timer-label">Минут</div></div>
@@ -387,11 +378,11 @@
       </div>
     </div>
 
-    <!-- Блок 3: Свадебная программа в виде картинки -->
+    <!-- Блок 3: программа -->
     <div class="schedule-card">
       <div class="schedule-title">Свадебная программа</div>
       <img class="schedule-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23F4EBE9' rx='32'/%3E%3Ctext x='400' y='55' font-family='Playfair Display, Georgia' font-size='28' font-weight='bold' fill='%233A4F5C' text-anchor='middle'%3EСвадебная программа%3C/text%3E%3Cline x1='120' y1='80' x2='680' y2='80' stroke='%23E7E0D8' stroke-width='2'/%3E%3Ctext x='130' y='130' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E14:00 — Сбор гостей, фуршет%3C/text%3E%3Ctext x='130' y='175' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E15:00 — Интервью гостей%3C/text%3E%3Ctext x='130' y='220' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E15:45 — Церемония регистрации%3C/text%3E%3Ctext x='130' y='265' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E16:30 — Фотосессия%3C/text%3E%3Ctext x='130' y='310' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E17:00 — Банкет%3C/text%3E%3Ctext x='130' y='355' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E23:00 — Конец мероприятия%3C/text%3E%3C/svg%3E"
-           alt="Расписание торжества">
+           alt="Расписание">
     </div>
 
     <!-- Блок 4: форма -->
@@ -421,7 +412,7 @@
           <textarea rows="2"></textarea>
         </div>
         <button type="submit" class="send-btn">Отправить</button>
-        <p class="footer-note" style="margin-top: 12px;">Функционал формы временно декоративный</p>
+        <p style="text-align: center; font-size: 0.7rem; margin-top: 12px; color:#7A8D99;">Функционал формы временно декоративный</p>
       </form>
     </div>
     <hr>
@@ -430,7 +421,7 @@
 </div>
 
 <script>
-  // ТАЙМЕР до 26 АВГУСТА 2026 14:00
+  // таймер 26 августа 2026 14:00
   function timerTick() {
     const target = new Date(2026, 7, 26, 14, 0, 0);
     const now = new Date();
@@ -454,7 +445,7 @@
   timerTick();
   setInterval(timerTick, 1000);
 
-  // КАРТА: открыть/скрыть
+  // карта
   const btnMap = document.getElementById('toggleMap');
   const slide = document.getElementById('mapSlide');
   let openMap = false;
@@ -469,17 +460,16 @@
       openMap = false;
     }
   });
-  // Клик по iframe открывает яндекс карты
   const iframeMap = document.querySelector('.map-frame');
   iframeMap.addEventListener('click', () => {
     window.open('https://yandex.ru/maps/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169', '_blank');
   });
 
-  // форма - заглушка
+  // форма
   const formEl = document.getElementById('rsvpForm');
   formEl.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Спасибо! Ваш ответ сохранен. Форма скоро заработает полностью.');
+    alert('Спасибо! Ваш ответ сохранен.');
   });
 </script>
 </body>
