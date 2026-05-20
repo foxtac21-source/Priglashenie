@@ -36,6 +36,7 @@
       transition: all 0.2s;
     }
 
+    /* ===== ШАПКА = ФОТО МЫ.png с плавным переходом в фон ===== */
     .hero-section {
       position: relative;
       margin-bottom: 1.5rem;
@@ -43,24 +44,26 @@
     .hero-image {
       width: 100%;
       height: auto;
-      min-height: 240px;
+      min-height: 300px;
       object-fit: cover;
       border-radius: 40px;
       display: block;
       box-shadow: none;
     }
+    /* плавный градиентный переход от фото к бежевому фону */
     .hero-section::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 100px;
+      height: 120px;
       background: linear-gradient(to bottom, rgba(244, 235, 233, 0) 0%, #F4EBE9 100%);
       pointer-events: none;
       border-radius: 0 0 40px 40px;
     }
 
+    /* рукописные имена */
     .names-calligraphy {
       text-align: center;
       margin: 0.5rem 0 1.5rem 0;
@@ -95,21 +98,14 @@
       text-align: center;
     }
 
-    .couple-block {
+    /* подпись под фото (но фото уже в шапке, поэтому этот блок можно убрать или оставить приглашение) */
+    .invite-block {
       background: rgba(231, 224, 216, 0.45);
       border-radius: 40px;
-      padding: 2rem 1.8rem;
+      padding: 1.5rem 1.8rem;
       text-align: center;
       margin-bottom: 2rem;
       border-left: 6px solid #E7E0D8;
-    }
-    .couple-img {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
-      border-radius: 36px;
-      box-shadow: 0 18px 32px -12px rgba(0, 0, 0, 0.2);
-      margin-bottom: 1.2rem;
     }
     .invite-text {
       font-size: 1.5rem;
@@ -176,9 +172,11 @@
       font-size: 0.95rem;
       color: #3E5A68;
       cursor: pointer;
+      transition: 0.2s;
     }
     .map-btn:hover {
       background: white;
+      transform: translateY(-2px);
     }
     .map-slide {
       overflow: hidden;
@@ -278,6 +276,7 @@
       color: #3E5A68;
       cursor: pointer;
       margin-top: 12px;
+      transition: 0.2s;
     }
     .send-btn:hover {
       background: white;
@@ -303,7 +302,7 @@
         padding: 1.2rem;
       }
       .hero-image {
-        min-height: 160px;
+        min-height: 200px;
       }
       .names-calligraphy h1 {
         font-size: 2.5rem;
@@ -330,12 +329,12 @@
 <div class="wrapper">
   <div class="beige-card">
     
-    <!-- ШАПКА: файл шапка.png -->
+    <!-- ШАПКА = ФОТО МЫ.png с плавным переходом в фон -->
     <div class="hero-section">
-      <img class="hero-image" src="шапка.png" alt="шапка">
+      <img class="hero-image" src="МЫ.png" alt="Артём и Анастасия">
     </div>
 
-    <!-- Имена под шапкой -->
+    <!-- Рукописные имена -->
     <div class="names-calligraphy">
       <h1>Артём <span class="ampersand">&</span> Анастасия</h1>
     </div>
@@ -344,9 +343,8 @@
       <div class="main-title">ПРИГЛАШЕНИЕ НА СВАДЬБУ</div>
     </div>
 
-    <!-- ФОТО МОЛОДОЖЕНОВ: файл МЫ.png (большими буквами) -->
-    <div class="couple-block">
-      <img class="couple-img" src="МЫ.png" alt="Артём и Анастасия">
+    <!-- Пригласительный текст -->
+    <div class="invite-block">
       <div class="invite-text">
         Приглашаем вас принять участие в создании нашей семьи
       </div>
@@ -413,6 +411,7 @@
 </div>
 
 <script>
+  // таймер 26 августа 2026 14:00
   function timerTick() {
     const target = new Date(2026, 7, 26, 14, 0, 0);
     const now = new Date();
@@ -436,6 +435,7 @@
   timerTick();
   setInterval(timerTick, 1000);
 
+  // карта
   const btnMap = document.getElementById('toggleMap');
   const slide = document.getElementById('mapSlide');
   let openMap = false;
@@ -455,6 +455,7 @@
     window.open('https://yandex.ru/maps/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169', '_blank');
   });
 
+  // форма
   const formEl = document.getElementById('rsvpForm');
   formEl.addEventListener('submit', (e) => {
     e.preventDefault();
