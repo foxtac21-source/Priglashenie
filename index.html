@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Артём & Анастасия | Свадебное приглашение</title>
+  <title>Свадебное приглашение | Артём & Анастасия</title>
   <style>
     * {
       margin: 0;
@@ -12,47 +12,47 @@
     }
 
     body {
-      background-color: #67869A; /* тёмно-синий фон */
-      font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-      line-height: 1.4;
+      background-color: #67869A;
+      font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+      line-height: 1.45;
       min-height: 100vh;
-    }
-
-    .main-container {
-      max-width: 1300px;
-      margin: 0 auto;
       padding: 24px 20px;
     }
 
-    /* розово-бежевая карточка — основной лист */
+    /* Подключаем элегантный шрифт Playfair + для текста sans */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500&display=swap');
+
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Основной бежевый лист */
     .beige-card {
       background-color: #F4EBE9;
       border-radius: 48px 32px 48px 32px;
-      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
       padding: 2rem;
-      transition: all 0.2s ease;
+      transition: all 0.2s;
     }
 
-    /* ========= ШАПКА С РАЗМЫТИЕМ ========= */
-    .hero-blur {
-      margin-bottom: 2rem;
-      border-radius: 40px;
-      overflow: hidden;
-      position: relative;
-    }
-    .hero-image {
+    /* ШАПКА: ТОЛЬКО ФОТО, размытие вниз, без текста сверху */
+    .hero-photo {
       width: 100%;
-      height: 320px;
+      height: 380px;
       object-fit: cover;
-      display: block;
       border-radius: 40px;
-      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.2);
-    }
-    /* размытие к низу через маску */
-    .blur-bottom {
+      display: block;
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 2rem;
       position: relative;
     }
-    .blur-bottom::after {
+    /* размытый градиент внизу (плавный переход к бежевому) */
+    .hero-wrapper {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    .hero-wrapper::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -64,416 +64,349 @@
       border-radius: 0 0 40px 40px;
     }
 
-    /* Заголовок ПРИГЛАШЕНИЕ НА СВАДЬБУ */
-    .wedding-title {
+    /* заголовок мероприятия */
+    .main-title {
       text-align: center;
-      margin: 1.5rem 0 1rem 0;
-    }
-    .wedding-title h1 {
-      font-size: 2.2rem;
-      letter-spacing: 2px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 2.4rem;
+      letter-spacing: -0.3px;
       color: #3A4F5C;
-      font-weight: 500;
-      border-bottom: 3px solid #E7E0D8;
+      margin: 0.5rem 0 1.8rem 0;
+      border-bottom: 3px solid #DBCFBD;
       display: inline-block;
+      width: auto;
       padding-bottom: 8px;
     }
+    .title-center {
+      text-align: center;
+    }
 
-    /* блок 1: фото + подпись */
-    .photo-block {
-      background: rgba(231, 224, 216, 0.4);
-      border-radius: 36px;
-      padding: 1.8rem;
+    /* блок с фото молодоженов и подписью */
+    .couple-block {
+      background: rgba(231, 224, 216, 0.45);
+      border-radius: 40px;
+      padding: 2rem 1.8rem;
       text-align: center;
       margin-bottom: 2rem;
-      border-left: 5px solid #E7E0D8;
+      border-left: 6px solid #E7E0D8;
     }
-    .couple-photo {
+    .couple-img {
       width: 100%;
-      max-height: 460px;
+      max-height: 500px;
       object-fit: cover;
-      border-radius: 32px;
-      box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.2);
+      border-radius: 36px;
+      box-shadow: 0 18px 32px -12px rgba(0, 0, 0, 0.2);
       margin-bottom: 1.2rem;
     }
-    .photo-caption {
-      font-size: 1.3rem;
+    .invite-text {
+      font-size: 1.6rem;
       font-weight: 500;
+      font-family: 'Playfair Display', serif;
       color: #4A5F6A;
       background: #F4EBE9;
       display: inline-block;
-      padding: 8px 24px;
+      padding: 8px 32px;
       border-radius: 60px;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
 
-    /* таймер блок */
-    .timer-block {
-      background: rgba(231, 224, 216, 0.5);
-      border-radius: 36px;
+    /* таймер */
+    .timer-area {
+      background: #EDE3DD;
+      border-radius: 44px;
       padding: 1.8rem;
       text-align: center;
       margin-bottom: 2rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
     }
-    .timer-title {
-      font-size: 1.5rem;
+    .timer-head {
+      font-size: 1.6rem;
       font-weight: 500;
-      color: #3A4F5C;
+      font-family: 'Playfair Display', serif;
+      color: #2C3E4E;
       margin-bottom: 1rem;
     }
-    .timer-digits {
+    .timer-flex {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
       flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.6rem;
     }
-    .time-unit {
-      background: rgba(198, 209, 217, 0.4);
+    .timer-item {
+      background: rgba(198, 209, 217, 0.5);
       backdrop-filter: blur(8px);
-      border-radius: 28px;
-      padding: 0.8rem 1.2rem;
-      min-width: 80px;
+      border-radius: 32px;
+      padding: 0.7rem 1.2rem;
+      min-width: 85px;
       text-align: center;
-      border: 1px solid rgba(103,134,154,0.3);
+      border: 1px solid rgba(103,134,154,0.2);
     }
-    .time-number {
+    .timer-num {
       font-size: 2.2rem;
       font-weight: 700;
+      font-family: 'Playfair Display', monospace;
       color: #2C3E4E;
-      line-height: 1;
+      line-height: 1.2;
     }
-    .time-label {
+    .timer-label {
       font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #5a6f7a;
+      letter-spacing: 2px;
+      font-family: 'Inter', sans-serif;
+      color: #4F6572;
     }
     .map-btn {
-      background-color: #F1F1F1;
+      background: #F1F1F1;
       border: none;
       padding: 12px 28px;
-      border-radius: 60px;
-      font-size: 1rem;
+      border-radius: 50px;
       font-weight: 600;
-      color: #4A5F6A;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #3E5A68;
       cursor: pointer;
-      transition: all 0.2s;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      margin-top: 8px;
+      transition: 0.2s;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
     }
     .map-btn:hover {
-      background-color: #fff;
+      background: white;
       transform: translateY(-2px);
     }
-    /* карта контейнер с анимацией */
-    .map-container {
+    .map-slide {
       overflow: hidden;
-      transition: max-height 0.5s ease-in-out, margin 0.3s;
+      transition: max-height 0.45s ease-out;
       max-height: 0;
       margin-top: 0;
-      border-radius: 32px;
+      border-radius: 28px;
     }
-    .map-container.show {
+    .map-slide.open {
       max-height: 420px;
       margin-top: 1.2rem;
     }
-    .map-iframe {
+    .map-frame {
       width: 100%;
       height: 360px;
       border-radius: 28px;
       border: 1px solid #C6D1D9;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
-    /* ===== 3 блок: программа в виде ДВУХ КОНВЕРТОВ ===== */
-    .program-section {
-      margin-bottom: 2rem;
+    /* ПРОГРАММА - ВИДЕ КАРТИНКИ (чистое расписание как картинка) */
+    .schedule-card {
+      margin: 2rem 0;
+      background: #E9E0DA;
+      border-radius: 48px;
+      padding: 1rem;
+      box-shadow: 0 10px 25px -8px rgba(0,0,0,0.1);
     }
-    .program-title {
-      font-size: 1.7rem;
-      font-weight: 500;
-      color: #3A4F5C;
-      margin-bottom: 1.2rem;
+    .schedule-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.9rem;
       text-align: center;
+      color: #3A4F5C;
+      margin: 0.5rem 0 1rem;
     }
-    .envelopes-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-    /* каждый конверт — стилизованный блок с тенью и "клапаном" */
-    .envelope-card {
-      flex: 1;
-      min-width: 260px;
+    /* именно картинка-расписание */
+    .schedule-img {
+      width: 100%;
+      border-radius: 36px;
+      display: block;
       background: #F4EBE9;
-      border-radius: 28px;
-      box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255,255,240,0.6);
-      transition: transform 0.2s;
-      overflow: hidden;
-      position: relative;
-    }
-    /* имитация клапана конверта */
-    .envelope-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 38px;
-      background: linear-gradient(135deg, #E7E0D8 20%, #D9CFC5 90%);
-      clip-path: polygon(0% 0%, 100% 0%, 50% 30%);
-      z-index: 2;
-    }
-    .envelope-inner {
-      padding: 1.8rem 1.2rem 1.5rem;
-      margin-top: 18px;
-    }
-    .envelope-photo {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 20px;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.1);
-    }
-    .event-list {
-      list-style: none;
-    }
-    .event-list li {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px dashed #E7E0D8;
-      color: #4A5F6A;
-      font-weight: 500;
-    }
-    .event-time {
-      font-weight: 700;
-      color: #2C3E4E;
-      background: rgba(198,209,217,0.4);
-      padding: 2px 10px;
-      border-radius: 30px;
-      font-size: 0.8rem;
-    }
-    .event-name {
-      font-size: 0.95rem;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.1);
     }
 
-    /* форма RSVP */
-    .form-block {
-      background: rgba(231, 224, 216, 0.4);
-      border-radius: 36px;
+    /* форма */
+    .form-card {
+      background: rgba(231, 224, 216, 0.5);
+      border-radius: 40px;
       padding: 1.8rem;
       margin-top: 1rem;
       border-left: 5px solid #E7E0D8;
     }
     .form-title {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
+      font-family: 'Playfair Display', serif;
       margin-bottom: 1.2rem;
       color: #3A4F5C;
     }
-    .form-group {
+    .input-group {
       margin-bottom: 1.2rem;
     }
-    .form-group label {
+    .input-group label {
       display: block;
-      margin-bottom: 6px;
       font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 6px;
       color: #4A5F6A;
     }
     input, textarea, select {
       width: 100%;
       padding: 12px 16px;
-      border-radius: 30px;
+      border-radius: 60px;
       border: 1px solid #C6D1D9;
-      background: #FDFBF9;
-      font-family: inherit;
-      font-size: 0.95rem;
+      background: #FDF9F6;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
       transition: 0.2s;
     }
-    input:focus, textarea:focus, select:focus {
-      outline: none;
-      border-color: #67869A;
-      box-shadow: 0 0 0 2px rgba(103,134,154,0.2);
-    }
-    .radio-group {
+    .radio-row {
       display: flex;
       gap: 1.5rem;
       align-items: center;
       flex-wrap: wrap;
     }
-    .radio-group label {
+    .radio-row label {
       display: flex;
       align-items: center;
       gap: 6px;
       font-weight: normal;
     }
-    .submit-btn {
-      background-color: #F1F1F1;
+    .send-btn {
+      background: #F1F1F1;
       border: none;
-      padding: 14px 32px;
-      border-radius: 60px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #4A5F6A;
-      cursor: pointer;
-      transition: 0.2s;
-      margin-top: 8px;
+      padding: 14px;
       width: 100%;
+      border-radius: 60px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #3E5A68;
+      cursor: pointer;
+      margin-top: 12px;
     }
-    .submit-btn:hover {
-      background-color: #fff;
-      transform: translateY(-2px);
+    .send-btn:hover {
+      background: white;
     }
     hr {
-      margin: 20px 0;
+      margin: 24px 0 10px;
       border: 0;
       height: 2px;
-      background: #E7E0D8;
-      border-radius: 2px;
+      background: #DBCFBD;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #7A8D99;
+      font-family: 'Inter', sans-serif;
     }
 
-    @media (max-width: 780px) {
-      .main-container {
+    @media (max-width: 720px) {
+      body {
         padding: 12px;
       }
       .beige-card {
         padding: 1.2rem;
       }
-      .hero-image {
+      .hero-photo {
         height: 220px;
       }
-      .wedding-title h1 {
-        font-size: 1.5rem;
-      }
-      .time-unit {
-        min-width: 65px;
-        padding: 0.5rem 0.8rem;
-      }
-      .time-number {
+      .main-title {
         font-size: 1.6rem;
+      }
+      .invite-text {
+        font-size: 1.2rem;
+      }
+      .timer-num {
+        font-size: 1.6rem;
+      }
+      .schedule-title {
+        font-size: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-<div class="main-container">
+<div class="wrapper">
   <div class="beige-card">
     
-    <!-- ШАПКА с размытием к низу -->
-    <div class="hero-blur blur-bottom">
-      <img class="hero-image" src="https://placehold.co/1200x400/E7E0D8/67869A?text=Артём+&+Анастасия" alt="Верхняя шапка">
+    <!-- ШАПКА — только фотография, никакого текста Артём -->
+    <div class="hero-wrapper">
+      <img class="hero-photo" src="https://placehold.co/1600x500/E7DDD4/FFFFFF?text=LOVE+STORY" alt="Свадебная шапка">
     </div>
 
-    <div class="wedding-title">
-      <h1>ПРИГЛАШЕНИЕ НА СВАДЬБУ</h1>
+    <div class="title-center">
+      <div class="main-title">ПРИГЛАШЕНИЕ НА СВАДЬБУ</div>
     </div>
 
-    <!-- 1 БЛОК: красивая фотка молодоженов -->
-    <div class="photo-block">
-      <img class="couple-photo" src="https://placehold.co/1000x600/C6D1D9/4A5F6A?text=Артём+❤️+Анастасия" alt="Артём и Анастасия">
-      <div class="photo-caption">
-        ✨ Приглашаем вас принять участие в создании нашей семьи ✨
+    <!-- Блок 1: ФОТО МОЛОДОЖЁНОВ и подпись (нет кривых символов) -->
+    <div class="couple-block">
+      <img class="couple-img" src="https://placehold.co/1200x700/CFC3B5/4A5F6A?text=Артём+&+Анастасия" alt="Артём и Анастасия">
+      <div class="invite-text">
+        Приглашаем вас принять участие в создании нашей семьи
       </div>
     </div>
 
-    <!-- 2 БЛОК: таймер + кнопка карты -->
-    <div class="timer-block">
-      <div class="timer-title">⏳ До торжества осталось</div>
-      <div class="timer-digits" id="timerContainer">
-        <div class="time-unit"><div class="time-number" id="days">00</div><div class="time-label">Дней</div></div>
-        <div class="time-unit"><div class="time-number" id="hours">00</div><div class="time-label">Часов</div></div>
-        <div class="time-unit"><div class="time-number" id="minutes">00</div><div class="time-label">Минут</div></div>
-        <div class="time-unit"><div class="time-number" id="seconds">00</div><div class="time-label">Секунд</div></div>
+    <!-- Блок 2: Таймер + карта -->
+    <div class="timer-area">
+      <div class="timer-head">До торжества осталось</div>
+      <div class="timer-flex" id="countdownWrap">
+        <div class="timer-item"><div class="timer-num" id="days">00</div><div class="timer-label">Дней</div></div>
+        <div class="timer-item"><div class="timer-num" id="hours">00</div><div class="timer-label">Часов</div></div>
+        <div class="timer-item"><div class="timer-num" id="minutes">00</div><div class="timer-label">Минут</div></div>
+        <div class="timer-item"><div class="timer-num" id="seconds">00</div><div class="timer-label">Секунд</div></div>
       </div>
-      <button class="map-btn" id="toggleMapBtn">📍 Открыть карту (Парк-отель Новый Век, г.Энгельс)</button>
-      <div id="mapContainer" class="map-container">
-        <iframe class="map-iframe" 
+      <button class="map-btn" id="toggleMap">📍 Открыть карту (Парк-отель Новый Век, г.Энгельс)</button>
+      <div id="mapSlide" class="map-slide">
+        <iframe class="map-frame" 
                 src="https://yandex.ru/map-widget/v1/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169&l=map"
                 frameborder="0"
-                allowfullscreen="true">
-        </iframe>
+                allowfullscreen="true"></iframe>
       </div>
     </div>
 
-    <!-- 3 БЛОК: Свадебная программа в виде двух конвертов с фото -->
-    <div class="program-section">
-      <div class="program-title">📜 Свадебная программа</div>
-      <div class="envelopes-row">
-        <!-- Левый конверт (первая половина дня) -->
-        <div class="envelope-card">
-          <div class="envelope-inner">
-            <img class="envelope-photo" src="https://placehold.co/400x200/E7E0D8/67869A?text=Торжественная+часть" alt="Регистрация">
-            <ul class="event-list">
-              <li><span class="event-time">14:00</span><span class="event-name">Сбор гостей, фуршет</span></li>
-              <li><span class="event-time">15:00</span><span class="event-name">Интервью гостей</span></li>
-              <li><span class="event-time">15:45</span><span class="event-name">Церемония регистрации</span></li>
-            </ul>
-          </div>
-        </div>
-        <!-- Правый конверт (вторая половина) -->
-        <div class="envelope-card">
-          <div class="envelope-inner">
-            <img class="envelope-photo" src="https://placehold.co/400x200/D9CFC5/4A5F6A?text=Банкет+&+Вечер" alt="Банкет">
-            <ul class="event-list">
-              <li><span class="event-time">16:30</span><span class="event-name">Фотосессия</span></li>
-              <li><span class="event-time">17:00</span><span class="event-name">Банкет</span></li>
-              <li><span class="event-time">23:00</span><span class="event-name">Конец мероприятия</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <!-- Блок 3: Свадебная программа в виде КАРТИНКИ (чистое, красивое расписание) -->
+    <div class="schedule-card">
+      <div class="schedule-title">Свадебная программа</div>
+      <!-- Это стилизованная картинка-расписание (да, она как картинка, но текст встроен для чёткости) 
+           Чтобы было как картинка — использую SVG-подобную таблицу, но максимально элегантно, без кривых знаков -->
+      <img class="schedule-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23F4EBE9' rx='32'/%3E%3Ctext x='400' y='55' font-family='Playfair Display, Georgia' font-size='28' font-weight='bold' fill='%233A4F5C' text-anchor='middle'%3EСвадебная программа%3C/text%3E%3Cline x1='120' y1='80' x2='680' y2='80' stroke='%23E7E0D8' stroke-width='2'/%3E%3Ctext x='130' y='130' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E14:00 — Сбор гостей, фуршет%3C/text%3E%3Ctext x='130' y='175' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E15:00 — Интервью гостей%3C/text%3E%3Ctext x='130' y='220' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E15:45 — Церемония регистрации%3C/text%3E%3Ctext x='130' y='265' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E16:30 — Фотосессия%3C/text%3E%3Ctext x='130' y='310' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E17:00 — Банкет%3C/text%3E%3Ctext x='130' y='355' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E23:00 — Конец мероприятия%3C/text%3E%3C/svg%3E"
+           alt="Расписание торжества">
     </div>
 
-    <!-- 4 БЛОК: Форма RSVP -->
-    <div class="form-block">
-      <div class="form-title">💌 Пожалуйста, подтвердите присутствие</div>
-      <form id="rsvpForm" action="#" method="post">
-        <div class="form-group">
-          <label>Ваше ФИО *</label>
-          <input type="text" name="fullname" placeholder="Артём / Анастасия / Иванов Иван" required>
+    <!-- Блок 4: форма -->
+    <div class="form-card">
+      <div class="form-title">Подтверждение присутствия</div>
+      <form id="rsvpForm">
+        <div class="input-group">
+          <label>Ваше ФИО</label>
+          <input type="text" placeholder="Иван и Мария" required>
         </div>
-        <div class="form-group">
+        <div class="input-group">
           <label>Придете ли вы на церемонию?</label>
-          <div class="radio-group">
+          <div class="radio-row">
             <label><input type="radio" name="ceremony" value="yes"> Да</label>
             <label><input type="radio" name="ceremony" value="no"> Нет</label>
           </div>
         </div>
-        <div class="form-group">
+        <div class="input-group">
           <label>Придете ли вы на банкет?</label>
-          <div class="radio-group">
+          <div class="radio-row">
             <label><input type="radio" name="banquet" value="yes"> Да</label>
             <label><input type="radio" name="banquet" value="no"> Нет</label>
           </div>
         </div>
-        <div class="form-group">
-          <label>Ваш комментарий (пожелания, аллергии, etc.)</label>
-          <textarea rows="3" name="comment" placeholder="Буду рад(а) разделить этот день с вами..."></textarea>
+        <div class="input-group">
+          <label>Ваш комментарий</label>
+          <textarea rows="2" placeholder="Пожелания, диетические предпочтения..."></textarea>
         </div>
-        <button type="submit" class="submit-btn">📨 Отправить</button>
-        <p style="font-size: 0.7rem; text-align: center; margin-top: 12px; color:#7f8c8d;">Функционал временно декоративный, скоро заработает</p>
+        <button type="submit" class="send-btn">Отправить</button>
+        <p class="footer-note" style="margin-top: 12px;">Функционал формы временно декоративный</p>
       </form>
     </div>
-
     <hr>
-    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 8px;">
-      <div class="info-note" style="background:rgba(231,224,216,0.6); padding:6px 16px; border-radius: 40px;">🎨 палитра: #67869A | #F4EBE9 | #C6D1D9 | #E7E0D8</div>
-      <div class="info-note" style="background:rgba(231,224,216,0.6); padding:6px 16px; border-radius: 40px;">❤️ Артём & Анастасия — 26 августа</div>
-    </div>
+    <div class="footer-note">Артём & Анастасия · 26 августа · Парк-отель Новый Век, г.Энгельс</div>
   </div>
 </div>
 
 <script>
-  // Таймер до 26 августа 14:00
-  function updateTimer() {
-    const targetDate = new Date(2025, 7, 26, 14, 0, 0); // 26 августа 2025, 14:00 (месяц 7 = август)
+  // ТАЙМЕР 26 АВГУСТА 14:00
+  function timerTick() {
+    const target = new Date(2025, 7, 26, 14, 0, 0);
     const now = new Date();
-    const diff = targetDate - now;
-
+    const diff = target - now;
     if (diff <= 0) {
       document.getElementById('days').innerText = '00';
       document.getElementById('hours').innerText = '00';
@@ -481,74 +414,45 @@
       document.getElementById('seconds').innerText = '00';
       return;
     }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (86400000)) / (3600000));
-    const minutes = Math.floor((diff % 3600000) / 60000);
-    const seconds = Math.floor((diff % 60000) / 1000);
-
-    document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-    document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-    document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-    document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (86400000)) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    document.getElementById('days').innerText = days < 10 ? '0'+days : days;
+    document.getElementById('hours').innerText = hours < 10 ? '0'+hours : hours;
+    document.getElementById('mins') ? null : null;
+    document.getElementById('minutes').innerText = mins < 10 ? '0'+mins : mins;
+    document.getElementById('seconds').innerText = secs < 10 ? '0'+secs : secs;
   }
-  updateTimer();
-  setInterval(updateTimer, 1000);
+  timerTick();
+  setInterval(timerTick, 1000);
 
-  // Карта: кнопка открыть/скрыть + клик по карте -> Яндекс карты
-  const toggleBtn = document.getElementById('toggleMapBtn');
-  const mapContainer = document.getElementById('mapContainer');
-  const mapIframe = document.querySelector('.map-iframe');
-  let isMapOpen = false;
-
-  // Координаты и метка для Яндекс.Карт (Парк-отель Новый Век, Энгельс)
-  const yandexLink = "https://yandex.ru/maps/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169&whatshere%5Bpoint%5D=46.130309,51.478169&whatshere%5Bzoom%5D=17";
-
-  toggleBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (!isMapOpen) {
-      mapContainer.classList.add('show');
-      toggleBtn.innerHTML = '🗺️ Скрыть карту (Парк-отель Новый Век)';
-      isMapOpen = true;
+  // КАРТА: открыть/скрыть + клик по iframe открывает Яндекс карты
+  const btnMap = document.getElementById('toggleMap');
+  const slide = document.getElementById('mapSlide');
+  let openMap = false;
+  btnMap.addEventListener('click', () => {
+    if (!openMap) {
+      slide.classList.add('open');
+      btnMap.innerHTML = '🗺️ Скрыть карту (Парк-отель Новый Век)';
+      openMap = true;
     } else {
-      mapContainer.classList.remove('show');
-      toggleBtn.innerHTML = '📍 Открыть карту (Парк-отель Новый Век, г.Энгельс)';
-      isMapOpen = false;
+      slide.classList.remove('open');
+      btnMap.innerHTML = '📍 Открыть карту (Парк-отель Новый Век, г.Энгельс)';
+      openMap = false;
     }
   });
-
-  // При клике на саму карту (область iframe) открываем Яндекс карты в новой вкладке
-  mapIframe.addEventListener('click', function() {
-    window.open(yandexLink, '_blank');
+  // Клик по карте -> яндекс карты на полный экран
+  const iframeMap = document.querySelector('.map-frame');
+  iframeMap.addEventListener('click', () => {
+    window.open('https://yandex.ru/maps/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169', '_blank');
   });
-  // для мобильных / удобства можно и по области обертки, но iframe перехватывает клик, поэтому навешиваем дополнительно на родителя
-  // но чтобы точно сработало — сделаем через обертку, клик по всей карте
-  mapContainer.addEventListener('click', function(e) {
-    // Если клик не по самой кнопке и карта открыта, то открываем ссылку
-    if (isMapOpen && e.target !== toggleBtn && !toggleBtn.contains(e.target)) {
-      window.open(yandexLink, '_blank');
-    }
-  });
-  // Чтобы не мешать скрытию, проверка выше исключает кнопку
-
-  // Форма: заглушка, пока просто alert о том, что функционал позже (как просили)
-  const form = document.getElementById('rsvpForm');
-  form.addEventListener('submit', (e) => {
+  // Заглушка формы
+  const formEl = document.getElementById('rsvpForm');
+  formEl.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Спасибо! Форма пока в тестовом режиме. Ваш ответ сохранён (заглушка). Скоро добавим отправку.');
-    // При желании можно очистить или оставить, но ничего не отправляем
-    console.log('Форма отправлена (заглушка)');
+    alert('Спасибо! Форма скоро заработает полностью.');
   });
-
-  // Замена placehold изображений на более романтичные? оставляем заглушки, но стилизованы под палитру
-  // Чтобы фото выглядели эстетично, добавим inline-замену? не требуется, пользователь сможет заменить src.
-  // Дополнительно для красоты можно подставить картинку unsplash, но оставим нейтральные плейсхолдеры с именами
-  const coupleImg = document.querySelector('.couple-photo');
-  if (coupleImg && coupleImg.src.includes('placehold')) {
-    // можно оставить как есть, либо дать подсказку: в реальном проекте замените на фото
-  }
-  const envelopeImgs = document.querySelectorAll('.envelope-photo');
-  // ничего не трогаем, чтобы соответствовать заглушкам
 </script>
 </body>
 </html>
