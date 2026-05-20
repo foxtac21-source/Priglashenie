@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Пригласительный шаблон | Вариант 2</title>
+  <title>Артём & Анастасия | Свадебное приглашение</title>
   <style>
     * {
       margin: 0;
@@ -11,25 +11,20 @@
       box-sizing: border-box;
     }
 
-    /* ОБЩИЙ ТЁМНЫЙ ФОН — тёмно-синий #67869A */
     body {
-      background-color: #67869A;
+      background-color: #67869A; /* тёмно-синий фон */
       font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
       line-height: 1.4;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    }
+
+    .main-container {
+      max-width: 1300px;
+      margin: 0 auto;
       padding: 24px 20px;
     }
 
-    .wrapper {
-      max-width: 1300px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    /* ВНУТРЕННИЙ СЛОЙ (лист) — розово-бежевый #F4EBE9 */
+    /* розово-бежевая карточка — основной лист */
     .beige-card {
       background-color: #F4EBE9;
       border-radius: 48px 32px 48px 32px;
@@ -38,58 +33,285 @@
       transition: all 0.2s ease;
     }
 
-    .invite-layout {
+    /* ========= ШАПКА С РАЗМЫТИЕМ ========= */
+    .hero-blur {
+      margin-bottom: 2rem;
+      border-radius: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      border-radius: 40px;
+      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.2);
+    }
+    /* размытие к низу через маску */
+    .blur-bottom {
+      position: relative;
+    }
+    .blur-bottom::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to bottom, rgba(244,235,233,0) 0%, #F4EBE9 100%);
+      pointer-events: none;
+      border-radius: 0 0 40px 40px;
+    }
+
+    /* Заголовок ПРИГЛАШЕНИЕ НА СВАДЬБУ */
+    .wedding-title {
+      text-align: center;
+      margin: 1.5rem 0 1rem 0;
+    }
+    .wedding-title h1 {
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      color: #3A4F5C;
+      font-weight: 500;
+      border-bottom: 3px solid #E7E0D8;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    /* блок 1: фото + подпись */
+    .photo-block {
+      background: rgba(231, 224, 216, 0.4);
+      border-radius: 36px;
+      padding: 1.8rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-left: 5px solid #E7E0D8;
+    }
+    .couple-photo {
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      border-radius: 32px;
+      box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.2);
+      margin-bottom: 1.2rem;
+    }
+    .photo-caption {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #4A5F6A;
+      background: #F4EBE9;
+      display: inline-block;
+      padding: 8px 24px;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    /* таймер блок */
+    .timer-block {
+      background: rgba(231, 224, 216, 0.5);
+      border-radius: 36px;
+      padding: 1.8rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .timer-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #3A4F5C;
+      margin-bottom: 1rem;
+    }
+    .timer-digits {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .time-unit {
+      background: rgba(198, 209, 217, 0.4);
+      backdrop-filter: blur(8px);
+      border-radius: 28px;
+      padding: 0.8rem 1.2rem;
+      min-width: 80px;
+      text-align: center;
+      border: 1px solid rgba(103,134,154,0.3);
+    }
+    .time-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #2C3E4E;
+      line-height: 1;
+    }
+    .time-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #5a6f7a;
+    }
+    .map-btn {
+      background-color: #F1F1F1;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #4A5F6A;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin-top: 8px;
+    }
+    .map-btn:hover {
+      background-color: #fff;
+      transform: translateY(-2px);
+    }
+    /* карта контейнер с анимацией */
+    .map-container {
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out, margin 0.3s;
+      max-height: 0;
+      margin-top: 0;
+      border-radius: 32px;
+    }
+    .map-container.show {
+      max-height: 420px;
+      margin-top: 1.2rem;
+    }
+    .map-iframe {
+      width: 100%;
+      height: 360px;
+      border-radius: 28px;
+      border: 1px solid #C6D1D9;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* ===== 3 блок: программа в виде ДВУХ КОНВЕРТОВ ===== */
+    .program-section {
+      margin-bottom: 2rem;
+    }
+    .program-title {
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: #3A4F5C;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .envelopes-row {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      align-items: stretch;
-    }
-
-    .content-area {
-      flex: 1.2;
-      min-width: 220px;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .glass-area {
-      flex: 0.9;
-      min-width: 240px;
-      display: flex;
-      align-items: center;
       justify-content: center;
     }
-
-    /* СТЕКЛЯННЫЙ ПРЯМОУГОЛЬНИК — голубой #C6D1D9 с эффектом стекла */
-    .glass-panel {
-      background: rgba(198, 209, 217, 0.35);
-      backdrop-filter: blur(12px) saturate(180%);
-      -webkit-backdrop-filter: blur(12px) saturate(180%);
-      border-radius: 42px;
-      border: 1px solid rgba(198, 209, 217, 0.65);
-      box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.2), 0 0 0 0.5px rgba(255, 255, 255, 0.25) inset;
+    /* каждый конверт — стилизованный блок с тенью и "клапаном" */
+    .envelope-card {
+      flex: 1;
+      min-width: 260px;
+      background: #F4EBE9;
+      border-radius: 28px;
+      box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255,255,240,0.6);
+      transition: transform 0.2s;
+      overflow: hidden;
+      position: relative;
+    }
+    /* имитация клапана конверта */
+    .envelope-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      padding: 2rem 1.8rem;
-      text-align: center;
+      height: 38px;
+      background: linear-gradient(135deg, #E7E0D8 20%, #D9CFC5 90%);
+      clip-path: polygon(0% 0%, 100% 0%, 50% 30%);
+      z-index: 2;
     }
-
-    .glass-panel p {
-      font-size: 1rem;
-      color: #2C3E4E;
+    .envelope-inner {
+      padding: 1.8rem 1.2rem 1.5rem;
+      margin-top: 18px;
+    }
+    .envelope-photo {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+    }
+    .event-list {
+      list-style: none;
+    }
+    .event-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed #E7E0D8;
+      color: #4A5F6A;
       font-weight: 500;
-      text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+    }
+    .event-time {
+      font-weight: 700;
+      color: #2C3E4E;
+      background: rgba(198,209,217,0.4);
+      padding: 2px 10px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+    }
+    .event-name {
+      font-size: 0.95rem;
     }
 
-    .glass-panel .small-caption {
-      font-size: 0.85rem;
-      opacity: 0.8;
-      margin-top: 12px;
-      font-weight: 400;
+    /* форма RSVP */
+    .form-block {
+      background: rgba(231, 224, 216, 0.4);
+      border-radius: 36px;
+      padding: 1.8rem;
+      margin-top: 1rem;
+      border-left: 5px solid #E7E0D8;
     }
-
-    /* КНОПКИ — белый #F1F1F1 */
-    .btn-sample {
+    .form-title {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      color: #3A4F5C;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #4A5F6A;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 30px;
+      border: 1px solid #C6D1D9;
+      background: #FDFBF9;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #67869A;
+      box-shadow: 0 0 0 2px rgba(103,134,154,0.2);
+    }
+    .radio-group {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: normal;
+    }
+    .submit-btn {
       background-color: #F1F1F1;
       border: none;
       padding: 14px 32px;
@@ -98,194 +320,235 @@
       font-weight: 600;
       color: #4A5F6A;
       cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      font-family: inherit;
-      letter-spacing: 0.3px;
-    }
-
-    .btn-sample:hover {
-      background-color: #ffffff;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-sample:active {
-      transform: translateY(1px);
-    }
-
-    .buttons-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 0.5rem;
-    }
-
-    /* Блок с текстом — с акцентом из коричневого бежевого #E7E0D8 */
-    .placeholder-text {
-      background: rgba(231, 224, 216, 0.4);
-      border-radius: 28px;
-      padding: 1.2rem 1.5rem;
-      border-left: 5px solid #E7E0D8;
-    }
-
-    .placeholder-text h3 {
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: #3A4F5C;
-      margin-bottom: 12px;
-      letter-spacing: -0.3px;
-    }
-
-    .placeholder-text p {
-      color: #4A5F6A;
-      line-height: 1.4;
-      font-size: 0.95rem;
-    }
-
-    .accent-border {
+      transition: 0.2s;
+      margin-top: 8px;
       width: 100%;
-      height: 4px;
-      background-color: #E7E0D8;
-      border-radius: 4px;
-      margin: 12px 0 8px;
     }
-
-    .info-note {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.75rem;
-      color: #2C3E2E;
-      background: rgba(231, 224, 216, 0.5);
-      display: inline-block;
-      width: auto;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      backdrop-filter: blur(2px);
+    .submit-btn:hover {
+      background-color: #fff;
+      transform: translateY(-2px);
     }
-
-    .dark-swatch {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-
-    .color-dot {
-      width: 28px;
-      height: 28px;
-      background-color: #67869A;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px rgba(255,255,240,0.3);
-    }
-
-    .color-label {
-      font-size: 0.8rem;
-      color: #4A5F6A;
-      font-weight: 500;
+    hr {
+      margin: 20px 0;
+      border: 0;
+      height: 2px;
+      background: #E7E0D8;
+      border-radius: 2px;
     }
 
     @media (max-width: 780px) {
-      body {
-        padding: 16px;
+      .main-container {
+        padding: 12px;
       }
       .beige-card {
-        padding: 1.5rem;
-        border-radius: 32px;
+        padding: 1.2rem;
       }
-      .invite-layout {
-        flex-direction: column;
-        gap: 1.8rem;
+      .hero-image {
+        height: 220px;
       }
-      .btn-sample {
-        padding: 12px 24px;
-        width: 100%;
-        text-align: center;
+      .wedding-title h1 {
+        font-size: 1.5rem;
       }
-      .buttons-row {
-        flex-direction: column;
-        width: 100%;
+      .time-unit {
+        min-width: 65px;
+        padding: 0.5rem 0.8rem;
       }
-      .glass-panel {
-        padding: 1.6rem;
-      }
-      .placeholder-text h3 {
-        font-size: 1.25rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .beige-card {
-        padding: 2.5rem;
-      }
-      .content-area {
-        gap: 2.2rem;
+      .time-number {
+        font-size: 1.6rem;
       }
     }
   </style>
 </head>
 <body>
-<div class="wrapper">
+<div class="main-container">
   <div class="beige-card">
-    <div class="invite-layout">
-      <div class="content-area">
-        <div class="placeholder-text">
-          <h3>Пригласительный шаблон — Вариант 2</h3>
-          <p>Общий фон — тёмно-синий #67869A.<br>
-          Внутренний слой — розово-бежевый #F4EBE9.<br>
-          Стеклянный прямоугольник на основе #C6D1D9.<br>
-          Акценты — коричневый бежевый #E7E0D8.</p>
-          <div class="accent-border"></div>
-          <p style="font-size:0.85rem; margin-top: 8px;">Свежая, мягкая комбинация — всё из вашей палитры.</p>
-        </div>
-        
-        <div class="buttons-row">
-          <button class="btn-sample" type="button">Принять приглашение</button>
-          <button class="btn-sample" type="button">Подробнее</button>
-          <button class="btn-sample" type="button">RSVP</button>
-        </div>
+    
+    <!-- ШАПКА с размытием к низу -->
+    <div class="hero-blur blur-bottom">
+      <img class="hero-image" src="https://placehold.co/1200x400/E7E0D8/67869A?text=Артём+&+Анастасия" alt="Верхняя шапка">
+    </div>
 
-        <div class="dark-swatch">
-          <div class="color-dot"></div>
-          <span class="color-label">тёмно-синий #67869A</span>
-          <div style="width: 28px; height: 28px; background-color: #F4EBE9; border-radius: 50%; margin-left: 8px; border: 1px solid #ccc;"></div>
-          <span class="color-label">розово-бежевый #F4EBE9</span>
-        </div>
+    <div class="wedding-title">
+      <h1>ПРИГЛАШЕНИЕ НА СВАДЬБУ</h1>
+    </div>
 
-        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 8px;">
-          <div style="width: 24px; height: 24px; background-color: #C6D1D9; border-radius: 8px;"></div>
-          <span style="font-size: 0.75rem; color: #4A5F6A;">голубой #C6D1D9 — стекло</span>
-          <div style="width: 24px; height: 24px; background-color: #E7E0D8; border-radius: 8px; margin-left: 4px;"></div>
-          <span style="font-size: 0.75rem; color: #4A5F6A;">коричневый бежевый #E7E0D8</span>
-        </div>
+    <!-- 1 БЛОК: красивая фотка молодоженов -->
+    <div class="photo-block">
+      <img class="couple-photo" src="https://placehold.co/1000x600/C6D1D9/4A5F6A?text=Артём+❤️+Анастасия" alt="Артём и Анастасия">
+      <div class="photo-caption">
+        ✨ Приглашаем вас принять участие в создании нашей семьи ✨
       </div>
+    </div>
 
-      <div class="glass-area">
-        <div class="glass-panel">
-          <p style="font-size: 1.35rem; font-weight: 600;">✨ стекло ✨</p>
-          <p>Эффект на основе <strong>#C6D1D9</strong></p>
-          <div class="small-caption">
-            полупрозрачный блок<br>
-            «голубое стекло»
+    <!-- 2 БЛОК: таймер + кнопка карты -->
+    <div class="timer-block">
+      <div class="timer-title">⏳ До торжества осталось</div>
+      <div class="timer-digits" id="timerContainer">
+        <div class="time-unit"><div class="time-number" id="days">00</div><div class="time-label">Дней</div></div>
+        <div class="time-unit"><div class="time-number" id="hours">00</div><div class="time-label">Часов</div></div>
+        <div class="time-unit"><div class="time-number" id="minutes">00</div><div class="time-label">Минут</div></div>
+        <div class="time-unit"><div class="time-number" id="seconds">00</div><div class="time-label">Секунд</div></div>
+      </div>
+      <button class="map-btn" id="toggleMapBtn">📍 Открыть карту (Парк-отель Новый Век, г.Энгельс)</button>
+      <div id="mapContainer" class="map-container">
+        <iframe class="map-iframe" 
+                src="https://yandex.ru/map-widget/v1/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169&l=map"
+                frameborder="0"
+                allowfullscreen="true">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- 3 БЛОК: Свадебная программа в виде двух конвертов с фото -->
+    <div class="program-section">
+      <div class="program-title">📜 Свадебная программа</div>
+      <div class="envelopes-row">
+        <!-- Левый конверт (первая половина дня) -->
+        <div class="envelope-card">
+          <div class="envelope-inner">
+            <img class="envelope-photo" src="https://placehold.co/400x200/E7E0D8/67869A?text=Торжественная+часть" alt="Регистрация">
+            <ul class="event-list">
+              <li><span class="event-time">14:00</span><span class="event-name">Сбор гостей, фуршет</span></li>
+              <li><span class="event-time">15:00</span><span class="event-name">Интервью гостей</span></li>
+              <li><span class="event-time">15:45</span><span class="event-name">Церемония регистрации</span></li>
+            </ul>
           </div>
-          <div style="margin-top: 16px;">
-            <div style="height: 3px; width: 45px; background: rgba(103,134,154,0.5); margin: 8px auto; border-radius: 4px;"></div>
-            <p style="font-size: 0.7rem; opacity: 0.8;">пример места для вашего текста</p>
+        </div>
+        <!-- Правый конверт (вторая половина) -->
+        <div class="envelope-card">
+          <div class="envelope-inner">
+            <img class="envelope-photo" src="https://placehold.co/400x200/D9CFC5/4A5F6A?text=Банкет+&+Вечер" alt="Банкет">
+            <ul class="event-list">
+              <li><span class="event-time">16:30</span><span class="event-name">Фотосессия</span></li>
+              <li><span class="event-time">17:00</span><span class="event-name">Банкет</span></li>
+              <li><span class="event-time">23:00</span><span class="event-name">Конец мероприятия</span></li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; margin-top: 30px;">
-      <div class="info-note">
-        🎨 вариант 2 | фон #67869A + слой #F4EBE9
-      </div>
-      <div class="info-note">
-        🪟 стекло #C6D1D9 | акценты #E7E0D8
-      </div>
+    <!-- 4 БЛОК: Форма RSVP -->
+    <div class="form-block">
+      <div class="form-title">💌 Пожалуйста, подтвердите присутствие</div>
+      <form id="rsvpForm" action="#" method="post">
+        <div class="form-group">
+          <label>Ваше ФИО *</label>
+          <input type="text" name="fullname" placeholder="Артём / Анастасия / Иванов Иван" required>
+        </div>
+        <div class="form-group">
+          <label>Придете ли вы на церемонию?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="ceremony" value="yes"> Да</label>
+            <label><input type="radio" name="ceremony" value="no"> Нет</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Придете ли вы на банкет?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="banquet" value="yes"> Да</label>
+            <label><input type="radio" name="banquet" value="no"> Нет</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Ваш комментарий (пожелания, аллергии, etc.)</label>
+          <textarea rows="3" name="comment" placeholder="Буду рад(а) разделить этот день с вами..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">📨 Отправить</button>
+        <p style="font-size: 0.7rem; text-align: center; margin-top: 12px; color:#7f8c8d;">Функционал временно декоративный, скоро заработает</p>
+      </form>
+    </div>
+
+    <hr>
+    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 8px;">
+      <div class="info-note" style="background:rgba(231,224,216,0.6); padding:6px 16px; border-radius: 40px;">🎨 палитра: #67869A | #F4EBE9 | #C6D1D9 | #E7E0D8</div>
+      <div class="info-note" style="background:rgba(231,224,216,0.6); padding:6px 16px; border-radius: 40px;">❤️ Артём & Анастасия — 26 августа</div>
     </div>
   </div>
 </div>
+
+<script>
+  // Таймер до 26 августа 14:00
+  function updateTimer() {
+    const targetDate = new Date(2025, 7, 26, 14, 0, 0); // 26 августа 2025, 14:00 (месяц 7 = август)
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById('days').innerText = '00';
+      document.getElementById('hours').innerText = '00';
+      document.getElementById('minutes').innerText = '00';
+      document.getElementById('seconds').innerText = '00';
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (86400000)) / (3600000));
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+    document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+    document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+  }
+  updateTimer();
+  setInterval(updateTimer, 1000);
+
+  // Карта: кнопка открыть/скрыть + клик по карте -> Яндекс карты
+  const toggleBtn = document.getElementById('toggleMapBtn');
+  const mapContainer = document.getElementById('mapContainer');
+  const mapIframe = document.querySelector('.map-iframe');
+  let isMapOpen = false;
+
+  // Координаты и метка для Яндекс.Карт (Парк-отель Новый Век, Энгельс)
+  const yandexLink = "https://yandex.ru/maps/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169&whatshere%5Bpoint%5D=46.130309,51.478169&whatshere%5Bzoom%5D=17";
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!isMapOpen) {
+      mapContainer.classList.add('show');
+      toggleBtn.innerHTML = '🗺️ Скрыть карту (Парк-отель Новый Век)';
+      isMapOpen = true;
+    } else {
+      mapContainer.classList.remove('show');
+      toggleBtn.innerHTML = '📍 Открыть карту (Парк-отель Новый Век, г.Энгельс)';
+      isMapOpen = false;
+    }
+  });
+
+  // При клике на саму карту (область iframe) открываем Яндекс карты в новой вкладке
+  mapIframe.addEventListener('click', function() {
+    window.open(yandexLink, '_blank');
+  });
+  // для мобильных / удобства можно и по области обертки, но iframe перехватывает клик, поэтому навешиваем дополнительно на родителя
+  // но чтобы точно сработало — сделаем через обертку, клик по всей карте
+  mapContainer.addEventListener('click', function(e) {
+    // Если клик не по самой кнопке и карта открыта, то открываем ссылку
+    if (isMapOpen && e.target !== toggleBtn && !toggleBtn.contains(e.target)) {
+      window.open(yandexLink, '_blank');
+    }
+  });
+  // Чтобы не мешать скрытию, проверка выше исключает кнопку
+
+  // Форма: заглушка, пока просто alert о том, что функционал позже (как просили)
+  const form = document.getElementById('rsvpForm');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Спасибо! Форма пока в тестовом режиме. Ваш ответ сохранён (заглушка). Скоро добавим отправку.');
+    // При желании можно очистить или оставить, но ничего не отправляем
+    console.log('Форма отправлена (заглушка)');
+  });
+
+  // Замена placehold изображений на более романтичные? оставляем заглушки, но стилизованы под палитру
+  // Чтобы фото выглядели эстетично, добавим inline-замену? не требуется, пользователь сможет заменить src.
+  // Дополнительно для красоты можно подставить картинку unsplash, но оставим нейтральные плейсхолдеры с именами
+  const coupleImg = document.querySelector('.couple-photo');
+  if (coupleImg && coupleImg.src.includes('placehold')) {
+    // можно оставить как есть, либо дать подсказку: в реальном проекте замените на фото
+  }
+  const envelopeImgs = document.querySelectorAll('.envelope-photo');
+  // ничего не трогаем, чтобы соответствовать заглушкам
+</script>
 </body>
 </html>
