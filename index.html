@@ -22,10 +22,10 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500&display=swap');
 
-    /* ===== ПОДКЛЮЧЕНИЕ ВАШЕГО ШРИФТА KOSOLAPA SCRIPT ===== */
+    /* ===== ПОДКЛЮЧЕНИЕ ШРИФТА — ФАЙЛ РЯДОМ С INDEX.HTML ===== */
     @font-face {
       font-family: 'Kosolapa Script';
-      src: url('колосапия/KosolapaScript-Regular.ttf') format('truetype');
+      src: url('KosolapaScript-Regular.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
       font-display: swap;
@@ -45,7 +45,6 @@
       transition: all 0.2s;
     }
 
-    /* ===== ШАПКА = ФОТО МЫ.png ===== */
     .hero-section {
       position: relative;
       margin-bottom: 1.5rem;
@@ -71,7 +70,6 @@
       border-radius: 0 0 40px 40px;
     }
 
-    /* рукописные имена — ВАШ ШРИФТ KOSOLAPA SCRIPT */
     .names-calligraphy {
       text-align: center;
       margin: 0.5rem 0 1.5rem 0;
@@ -203,7 +201,6 @@
       border: 1px solid #C6D1D9;
     }
 
-    /* Блок программы */
     .schedule-card {
       margin: 2rem 0;
       background: #E9E0DA;
@@ -342,12 +339,10 @@
 <div class="wrapper">
   <div class="beige-card">
     
-    <!-- ШАПКА = ФОТО МЫ.png -->
     <div class="hero-section">
       <img class="hero-image" src="МЫ.png" alt="Артём и Анастасия">
     </div>
 
-    <!-- Рукописные имена (ВАШ ШРИФТ KOSOLAPA SCRIPT) -->
     <div class="names-calligraphy">
       <h1>Артём <span class="ampersand">&</span> Анастасия</h1>
     </div>
@@ -356,14 +351,12 @@
       <div class="main-title">ПРИГЛАШЕНИЕ НА СВАДЬБУ</div>
     </div>
 
-    <!-- Пригласительный текст -->
     <div class="invite-block">
       <div class="invite-text">
         Приглашаем вас принять участие в создании нашей семьи
       </div>
     </div>
 
-    <!-- Таймер -->
     <div class="timer-area">
       <div class="timer-head">До торжества осталось</div>
       <div class="timer-flex">
@@ -381,14 +374,12 @@
       </div>
     </div>
 
-    <!-- Блок программы (заголовок ВАШИМ ШРИФТОМ) -->
     <div class="schedule-card">
       <div class="schedule-title">Свадебная программа</div>
       <img class="schedule-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 380'%3E%3Crect width='800' height='380' fill='%23F4EBE9' rx='32'/%3E%3Cline x1='120' y1='50' x2='680' y2='50' stroke='%23E7E0D8' stroke-width='2'/%3E%3Ctext x='130' y='105' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E14:00 — Сбор гостей, фуршет%3C/text%3E%3Ctext x='130' y='155' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E15:00 — Интервью гостей%3C/text%3E%3Ctext x='130' y='205' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E15:45 — Церемония регистрации%3C/text%3E%3Ctext x='130' y='255' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E16:30 — Фотосессия%3C/text%3E%3Ctext x='130' y='305' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E17:00 — Банкет%3C/text%3E%3Ctext x='130' y='355' font-family='Inter, sans-serif' font-size='18' fill='%234A5F6A'%3E23:00 — Конец мероприятия%3C/text%3E%3C/svg%3E"
            alt="Расписание">
     </div>
 
-    <!-- Форма -->
     <div class="form-card">
       <div class="form-title">Подтверждение присутствия</div>
       <form id="rsvpForm">
