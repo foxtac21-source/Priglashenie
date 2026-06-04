@@ -11,8 +11,9 @@
       box-sizing: border-box;
     }
 
+    /* ТЁМНО-СИНИЙ ФОН СТРАНИЦЫ — как вы просили изначально */
     body {
-      background-color: #C6CDBB;  /* самый дальний фон — приятный серо-зеленый */
+      background-color: #1A2F3A;  /* глубокий тёмно-синий фон позади всей страницы */
       font-family: 'Playfair Display', 'Georgia', serif;
       line-height: 1.45;
       min-height: 100vh;
@@ -22,32 +23,17 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:opsz,wght@14..32,300;400;500;600&display=swap');
 
-    /* Более жирный и выразительный каллиграфический шрифт вместо Kosolapa Script */
-    @font-face {
-      font-family: 'Cormorant Garamond';
-      src: url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-    /* используем системный жирный шрифт с наклоном — элегантный и плотный */
-    .names-calligraphy h1, .schedule-title, .ampersand {
-      font-family: 'Playfair Display', 'Georgia', serif;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
     .wrapper {
       max-width: 1200px;
       margin: 0 auto;
       padding: 28px 24px;
     }
 
-    /* главная карточка — фон нейтральный, но основной акцент #E4BD78 */
+    /* главная карточка — светлая, чтобы читалось, но фон страницы тёмно-синий */
     .beige-card {
       background-color: #FFFDF9;
       border-radius: 56px 40px 56px 40px;
-      box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(228, 189, 120, 0.3) inset;
+      box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(228, 189, 120, 0.3) inset;
       padding: 2.2rem;
       transition: all 0.2s;
     }
@@ -85,14 +71,9 @@
       font-family: 'Playfair Display', serif;
       font-size: 5rem;
       font-weight: 800;
-      color: #3BB421F; /* основной цвет текста — почти темный с оттенком */
       color: #2C5A2B;
       letter-spacing: 3px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-    }
-    /* корректируем цвет для ampersand и общего заголовка */
-    .names-calligraphy h1, .ampersand {
-      color: #3a6e38;
     }
     .ampersand {
       font-family: 'Playfair Display', serif;
@@ -243,7 +224,7 @@
       display: block;
     }
 
-    /* Блок dress-code новый */
+    /* Блок dress-code */
     .dresscode-card {
       background: #FEF4E6;
       border-radius: 44px;
@@ -312,7 +293,7 @@
       border-radius: 32px;
       resize: vertical;
     }
-    /* радио кнопки — вертикальный стек, ровно */
+    /* радио кнопки — вертикальный стек */
     .radio-group-vertical {
       display: flex;
       flex-direction: column;
@@ -446,7 +427,7 @@
       </div>
       <button class="map-btn" id="toggleMap">📍 Показать место проведения (Парк-отель Новый Век, Энгельс)</button>
       <div id="mapSlide" class="map-slide">
-        <!-- карта с правильной меткой через параметры: pt с координатами и добавлен яндекс карты с меткой -->
+        <!-- карта с правильной меткой: координаты + стиль метки -->
         <iframe class="map-frame" 
                 src="https://yandex.ru/map-widget/v1/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169,pm2rdm&l=map"
                 frameborder="0"
@@ -464,7 +445,7 @@
 
     <div class="schedule-card">
       <div class="schedule-title">Свадебная программа</div>
-      <!-- обновлённое SVG с увеличенным шрифтом (22px) и улучшенной читаемостью -->
+      <!-- SVG с увеличенным шрифтом (22px) и эмодзи для наглядности -->
       <img class="schedule-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 860 420'%3E%3Crect width='860' height='420' fill='%23FFFDF9' rx='40'/%3E%3Cline x1='100' y1='60' x2='760' y2='60' stroke='%23E4BD78' stroke-width='3'/%3E%3Ctext x='110' y='118' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E⏰ 14:00 — Сбор гостей, фуршет%3C/text%3E%3Ctext x='110' y='175' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E📖 15:00 — Интервью гостей%3C/text%3E%3Ctext x='110' y='232' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E💍 15:45 — Церемония регистрации%3C/text%3E%3Ctext x='110' y='289' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E📸 16:30 — Фотосессия%3C/text%3E%3Ctext x='110' y='346' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E🍽️ 17:00 — Банкет%3C/text%3E%3Ctext x='110' y='403' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E🌙 23:00 — Конец мероприятия%3C/text%3E%3C/svg%3E"
            alt="Расписание свадебного дня">
     </div>
@@ -513,7 +494,6 @@
 
 <script>
   function timerTick() {
-    // дата свадьбы: 26 августа 2026, 14:00
     const target = new Date(2026, 7, 26, 14, 0, 0);
     const now = new Date();
     const diff = target - now;
@@ -552,7 +532,7 @@
   });
   const iframeMap = document.querySelector('.map-frame');
   iframeMap.addEventListener('click', () => {
-    window.open('https://yandex.ru/maps/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169&mode=search&sctx=ZAAAAA', '_blank');
+    window.open('https://yandex.ru/maps/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169&mode=search', '_blank');
   });
 
   const formEl = document.getElementById('rsvpForm');
