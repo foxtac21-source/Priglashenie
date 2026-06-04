@@ -202,25 +202,56 @@
       border: 2px solid #2B4A21;
     }
 
+    /* ========== СВАДЕБНАЯ ПРОГРАММА — ОГРОМНАЯ ========== */
     .schedule-card {
-      margin: 1.5rem 0;
-      background: rgba(43, 74, 33, 0.06);
-      border-radius: 40px;
-      padding: 1rem;
-      border: 1px solid #2B4A21;
+      margin: 1.8rem 0;
+      background: rgba(43, 74, 33, 0.1);
+      border-radius: 48px;
+      padding: 1.5rem;
+      border: 2px solid #2B4A21;
     }
     .schedule-title {
       font-family: 'Playfair Display', serif;
       font-weight: 800;
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       text-align: center;
       color: #2B4A21;
-      margin: 0.5rem 0 1rem;
+      margin: 0 0 1.5rem 0;
+      letter-spacing: 2px;
     }
-    .schedule-img {
-      width: 100%;
-      border-radius: 32px;
-      display: block;
+    /* КАЖДЫЙ ПУНКТ — ОТДЕЛЬНАЯ БОЛЬШАЯ СТРОКА */
+    .schedule-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 15px;
+      border-bottom: 1px solid rgba(43, 74, 33, 0.2);
+    }
+    .schedule-item:last-child {
+      border-bottom: none;
+    }
+    .schedule-time {
+      font-family: 'Playfair Display', monospace;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #2B4A21;
+      background: rgba(43, 74, 33, 0.1);
+      padding: 8px 16px;
+      border-radius: 50px;
+      min-width: 110px;
+      text-align: center;
+    }
+    .schedule-desc {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #2B4A21;
+      line-height: 1.4;
+    }
+    .schedule-icon {
+      font-size: 2rem;
+      min-width: 50px;
+      text-align: center;
     }
 
     .dresscode-card {
@@ -358,6 +389,29 @@
       color: #2B4A21;
       font-family: 'Inter', sans-serif;
     }
+
+    /* МОБИЛЬНАЯ ВЕРСИЯ — ТОЖЕ БОЛЬШАЯ */
+    @media (max-width: 650px) {
+      .schedule-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 20px 12px;
+      }
+      .schedule-time {
+        font-size: 1.3rem;
+        min-width: auto;
+      }
+      .schedule-desc {
+        font-size: 1.15rem;
+      }
+      .schedule-icon {
+        font-size: 1.8rem;
+      }
+      .schedule-title {
+        font-size: 1.8rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -407,10 +461,45 @@
       </div>
     </div>
 
+    <!-- ========== СВАДЕБНАЯ ПРОГРАММА — ОГРОМНАЯ И РАСТЯНУТАЯ ========== -->
     <div class="schedule-card">
       <div class="schedule-title">Свадебная программа</div>
-      <img class="schedule-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 860 420'%3E%3Crect width='860' height='420' fill='%23E4BD78' rx='40'/%3E%3Cline x1='100' y1='60' x2='760' y2='60' stroke='%232B4A21' stroke-width='3'/%3E%3Ctext x='110' y='118' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E⏰ 14:00 — Сбор гостей, фуршет%3C/text%3E%3Ctext x='110' y='175' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E📖 15:00 — Интервью гостей%3C/text%3E%3Ctext x='110' y='232' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E💍 15:45 — Церемония регистрации%3C/text%3E%3Ctext x='110' y='289' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E📸 16:30 — Фотосессия%3C/text%3E%3Ctext x='110' y='346' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E🍽️ 17:00 — Банкет%3C/text%3E%3Ctext x='110' y='403' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E🌙 23:00 — Конец мероприятия%3C/text%3E%3C/svg%3E"
-           alt="Расписание">
+      
+      <div class="schedule-item">
+        <div class="schedule-icon">⏰</div>
+        <div class="schedule-time">14:00</div>
+        <div class="schedule-desc">Сбор гостей, фуршет</div>
+      </div>
+      
+      <div class="schedule-item">
+        <div class="schedule-icon">📖</div>
+        <div class="schedule-time">15:00</div>
+        <div class="schedule-desc">Интервью гостей</div>
+      </div>
+      
+      <div class="schedule-item">
+        <div class="schedule-icon">💍</div>
+        <div class="schedule-time">15:45</div>
+        <div class="schedule-desc">Церемония регистрации</div>
+      </div>
+      
+      <div class="schedule-item">
+        <div class="schedule-icon">📸</div>
+        <div class="schedule-time">16:30</div>
+        <div class="schedule-desc">Фотосессия</div>
+      </div>
+      
+      <div class="schedule-item">
+        <div class="schedule-icon">🍽️</div>
+        <div class="schedule-time">17:00</div>
+        <div class="schedule-desc">Банкет</div>
+      </div>
+      
+      <div class="schedule-item">
+        <div class="schedule-icon">🌙</div>
+        <div class="schedule-time">23:00</div>
+        <div class="schedule-desc">Конец мероприятия</div>
+      </div>
     </div>
 
     <div class="form-card">
@@ -495,7 +584,6 @@
   const submitBtn = document.getElementById('submitBtn');
   const statusDiv = document.getElementById('statusMessage');
   
-  // ==================== ВАШ НОВЫЙ URL СКРИПТА ====================
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwKEfPDQTSt51tzqqU6C3jsnqqUtBxhl7u-Vn2kjGvWya2lkmmp2M_JpO90jEUs4Uvx/exec';
   
   function validateName(name) {
@@ -590,7 +678,7 @@
       formData.append('comment', comment || '(не оставлен)');
       formData.append('timestamp', new Date().toLocaleString('ru-RU'));
       
-      const response = await fetch(SCRIPT_URL, {
+      await fetch(SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
