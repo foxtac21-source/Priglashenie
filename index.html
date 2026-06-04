@@ -11,7 +11,6 @@
       box-sizing: border-box;
     }
 
-    /* ДАЛЬНИЙ ФОН — #C6CDBB */
     body {
       background-color: #C6CDBB;
       font-family: 'Playfair Display', 'Georgia', serif;
@@ -29,7 +28,6 @@
       padding: 28px 24px;
     }
 
-    /* ОСНОВНАЯ КАРТОЧКА — #E4BD78 */
     .beige-card {
       background-color: #E4BD78;
       border-radius: 56px 40px 56px 40px;
@@ -311,7 +309,6 @@
       margin: 0;
     }
     
-    /* Стили для кнопки отправки и статуса */
     .send-btn {
       background: #2B4A21;
       border: none;
@@ -442,7 +439,7 @@
       <button class="map-btn" id="toggleMap">📍 Открыть карту (Парк-отель Новый Век, г. Энгельс)</button>
       <div id="mapSlide" class="map-slide">
         <iframe class="map-frame" 
-                src="https://yandex.ru/map-widget/v1/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169,pm2rdm&l=map"
+                src="https://yandex.ru/map-widget/v1/?ll=46.150822,51.450893&z=18&pt=46.150822,51.450893,pm2rdm&l=map"
                 frameborder="0"
                 allowfullscreen="true"></iframe>
       </div>
@@ -504,7 +501,6 @@
 </div>
 
 <script>
-  // Таймер обратного отсчета
   function timerTick() {
     const target = new Date(2026, 7, 26, 14, 0, 0);
     const now = new Date();
@@ -528,7 +524,6 @@
   timerTick();
   setInterval(timerTick, 1000);
 
-  // Карта
   const btnMap = document.getElementById('toggleMap');
   const slide = document.getElementById('mapSlide');
   let openMap = false;
@@ -546,41 +541,35 @@
   
   const iframeMap = document.querySelector('.map-frame');
   iframeMap.addEventListener('click', () => {
-    window.open('https://yandex.ru/maps/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169&mode=search', '_blank');
+    window.open('https://yandex.ru/maps/?ll=46.150822,51.450893&z=18&pt=46.150822,51.450893&mode=search', '_blank');
   });
 
-  // ========== ФОРМА С ОТПРАВКОЙ В ТАБЛИЦУ ==========
   const form = document.getElementById('rsvpForm');
   const submitBtn = document.getElementById('submitBtn');
   const statusDiv = document.getElementById('statusMessage');
   
-  // ВАШ URL СКРИПТА GOOGLE APPS SCRIPT
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbysezrJ38AePpEHx1EZ_s-rjTrqtRQcQt7bkO9IWi2VFyT7mG2yf3OzbUKCvZDiUh_5/exec';
   
-  // Функция валидации имени (только Фамилия Имя, не более 2 слов и без лишних символов)
   function validateName(name) {
     const trimmed = name.trim();
     if (trimmed === '') return false;
-    // Разбиваем на слова
     const words = trimmed.split(/\s+/);
-    if (words.length !== 2) return false; // Должно быть ровно 2 слова: фамилия и имя
-    // Проверяем, что каждое слово состоит только из букв, дефисов и apostrophe (русские/английские буквы)
+    if (words.length !== 2) return false;
     const namePattern = /^[a-zA-Zа-яА-ЯёЁ\-']+$/;
     return words.every(word => namePattern.test(word));
   }
   
-  // Функция отображения статуса
   function setStatus(message, type) {
     statusDiv.textContent = message;
     statusDiv.className = `status-message status-${type}`;
   }
   
-  // Функция очистки ошибок валидации
   function clearErrors() {
     document.getElementById('fullname').classList.remove('error-border');
     const radioGroups = document.querySelectorAll('.radio-group-vertical');
     radioGroups.forEach(group => {
       group.style.border = 'none';
+      group.style.padding = '';
     });
   }
   
@@ -589,25 +578,26 @@
       document.getElementById('fullname').classList.add('error-border');
     } else if (fieldName === 'ceremony') {
       const container = document.querySelector('input[name="ceremony"]')?.closest('.radio-group-vertical');
-      if (container) container.style.border = '1px solid #d43f3f';
-      if (container) container.style.borderRadius = '12px';
-      if (container) container.style.padding = '8px';
+      if (container) {
+        container.style.border = '1px solid #d43f3f';
+        container.style.borderRadius = '12px';
+        container.style.padding = '8px';
+      }
     } else if (fieldName === 'banquet') {
       const container = document.querySelector('input[name="banquet"]')?.closest('.radio-group-vertical');
-      if (container) container.style.border = '1px solid #d43f3f';
-      if (container) container.style.borderRadius = '12px';
-      if (container) container.style.padding = '8px';
+      if (container) {
+        container.style.border = '1px solid #d43f3f';
+        container.style.borderRadius = '12px';
+        container.style.padding = '8px';
+      }
     }
   }
   
-  // Отправка формы
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    // Очищаем предыдущие ошибки
     clearErrors();
     
-    // Получаем значения
     const fullname = document.getElementById('fullname').value.trim();
     const ceremonyRadio = document.querySelector('input[name="ceremony"]:checked');
     const banquetRadio = document.querySelector('input[name="banquet"]:checked');
@@ -615,7 +605,6 @@
     
     let isValid = true;
     
-    // Проверка имени
     if (!validateName(fullname)) {
       showFieldError('fullname');
       setStatus('Пожалуйста, укажите Фамилию и Имя (ровно два слова, например: Иванов Иван)', 'error');
@@ -623,7 +612,6 @@
       return;
     }
     
-    // Проверка церемонии
     if (!ceremonyRadio) {
       showFieldError('ceremony');
       setStatus('Пожалуйста, выберите, придете ли вы на церемонию', 'error');
@@ -631,7 +619,6 @@
       return;
     }
     
-    // Проверка банкета
     if (!banquetRadio) {
       showFieldError('banquet');
       setStatus('Пожалуйста, выберите, придете ли вы на банкет', 'error');
@@ -641,17 +628,14 @@
     
     if (!isValid) return;
     
-    // Получаем значения
     const ceremonyValue = ceremonyRadio.value;
     const banquetValue = banquetRadio.value;
     
-    // Состояние загрузки
     submitBtn.disabled = true;
     submitBtn.textContent = '🔄 Отправляем ваш ответ...';
     setStatus('Отправляем ваш ответ...', 'loading');
     
     try {
-      // Подготавливаем данные для отправки
       const formData = new URLSearchParams();
       formData.append('fullname', fullname);
       formData.append('ceremony', ceremonyValue);
@@ -659,8 +643,7 @@
       formData.append('comment', comment || '(не оставлен)');
       formData.append('timestamp', new Date().toLocaleString('ru-RU'));
       
-      // Отправляем запрос
-      const response = await fetch(SCRIPT_URL, {
+      await fetch(SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -669,20 +652,15 @@
         body: formData.toString()
       });
       
-      // При mode: 'no-cors' мы не можем прочитать ответ, но отправка считается успешной
       setStatus('✅ Доставлено! Спасибо за ваш ответ!', 'success');
       submitBtn.textContent = 'Отправить ответ';
       
-      // Очищаем форму
       document.getElementById('fullname').value = '';
       if (ceremonyRadio) ceremonyRadio.checked = false;
       if (banquetRadio) banquetRadio.checked = false;
       document.getElementById('comment').value = '';
-      
-      // Убираем подсветку радио-групп
       clearErrors();
       
-      // Через 3 секунды убираем сообщение
       setTimeout(() => {
         if (statusDiv.textContent === '✅ Доставлено! Спасибо за ваш ответ!') {
           setStatus('', '');
