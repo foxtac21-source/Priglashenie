@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- ЖЁСТКИЙ VIEWPORT ДЛЯ ТЕЛЕФОНОВ - ЗАПРЕЩАЕТ МАСШТАБИРОВАНИЕ И ФИКСИРУЕТ ШИРИНУ -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>Свадебное приглашение | Артём & Анастасия</title>
   <style>
@@ -12,9 +11,8 @@
       box-sizing: border-box;
     }
 
-    /* ГЛОБАЛЬНЫЙ СБРОС ДЛЯ ТЕЛЕФОНОВ */
     html {
-      font-size: 16px; /* БАЗА ДЛЯ REM */
+      font-size: 16px;
     }
 
     body {
@@ -225,7 +223,6 @@
       display: block;
     }
 
-    /* ДРЕСС-КОД — БОЛЬШОЙ ШРИФТ ДЛЯ СТАРИКОВ */
     .dresscode-card {
       background: rgba(43, 74, 33, 0.08);
       border-radius: 36px;
@@ -498,7 +495,8 @@
   const submitBtn = document.getElementById('submitBtn');
   const statusDiv = document.getElementById('statusMessage');
   
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbysezrJ38AePpEHx1EZ_s-rjTrqtRQcQt7bkO9IWi2VFyT7mG2yf3OzbUKCvZDiUh_5/exec';
+  // ==================== ВАШ НОВЫЙ URL СКРИПТА ====================
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwKEfPDQTSt51tzqqU6C3jsnqqUtBxhl7u-Vn2kjGvWya2lkmmp2M_JpO90jEUs4Uvx/exec';
   
   function validateName(name) {
     const trimmed = name.trim();
@@ -592,10 +590,12 @@
       formData.append('comment', comment || '(не оставлен)');
       formData.append('timestamp', new Date().toLocaleString('ru-RU'));
       
-      await fetch(SCRIPT_URL, {
+      const response = await fetch(SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
         body: formData.toString()
       });
       
