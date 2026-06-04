@@ -11,9 +11,9 @@
       box-sizing: border-box;
     }
 
-    /* ТЁМНО-СИНИЙ ФОН СТРАНИЦЫ — как вы просили изначально */
+    /* ДАЛЬНИЙ ФОН — #C6CDBB */
     body {
-      background-color: #1A2F3A;  /* глубокий тёмно-синий фон позади всей страницы */
+      background-color: #C6CDBB;
       font-family: 'Playfair Display', 'Georgia', serif;
       line-height: 1.45;
       min-height: 100vh;
@@ -29,13 +29,12 @@
       padding: 28px 24px;
     }
 
-    /* главная карточка — светлая, чтобы читалось, но фон страницы тёмно-синий */
+    /* ОСНОВНАЯ КАРТОЧКА — #E4BD78 (бежево-желтый) */
     .beige-card {
-      background-color: #FFFDF9;
+      background-color: #E4BD78;
       border-radius: 56px 40px 56px 40px;
-      box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(228, 189, 120, 0.3) inset;
+      box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.2);
       padding: 2.2rem;
-      transition: all 0.2s;
     }
 
     .hero-section {
@@ -58,7 +57,7 @@
       left: 0;
       width: 100%;
       height: 110px;
-      background: linear-gradient(to bottom, rgba(255, 253, 249, 0) 0%, #FFFDF9 100%);
+      background: linear-gradient(to bottom, rgba(228, 189, 120, 0) 0%, #E4BD78 100%);
       pointer-events: none;
       border-radius: 0 0 48px 48px;
     }
@@ -71,15 +70,14 @@
       font-family: 'Playfair Display', serif;
       font-size: 5rem;
       font-weight: 800;
-      color: #2C5A2B;
+      color: #2B4A21;
       letter-spacing: 3px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
     }
     .ampersand {
       font-family: 'Playfair Display', serif;
       font-size: 4.8rem;
       font-weight: 800;
-      color: #E4BD78;
+      color: #2B4A21;
       display: inline-block;
       margin: 0 6px;
     }
@@ -89,10 +87,9 @@
       font-family: 'Playfair Display', serif;
       font-weight: 800;
       font-size: 2.3rem;
-      letter-spacing: 0px;
-      color: #2C5A2B;
+      color: #2B4A21;
       margin: 0 0 2rem 0;
-      border-bottom: 4px solid #E4BD78;
+      border-bottom: 4px solid #2B4A21;
       display: inline-block;
       width: auto;
       padding-bottom: 10px;
@@ -102,38 +99,37 @@
     }
 
     .invite-block {
-      background: rgba(228, 189, 120, 0.2);
+      background: rgba(43, 74, 33, 0.1);
       border-radius: 48px;
       padding: 1.8rem 2rem;
       text-align: center;
       margin-bottom: 2.2rem;
-      border-left: 8px solid #E4BD78;
+      border-left: 8px solid #2B4A21;
     }
     .invite-text {
       font-size: 1.8rem;
       font-weight: 600;
       font-family: 'Playfair Display', serif;
-      color: #2f552e;
-      background: #FFFDF9;
+      color: #2B4A21;
+      background: rgba(255,255,240,0.7);
       display: inline-block;
       padding: 10px 34px;
       border-radius: 80px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     .timer-area {
-      background: #F9F3E8;
+      background: rgba(43, 74, 33, 0.08);
       border-radius: 52px;
       padding: 2rem;
       text-align: center;
       margin-bottom: 2.2rem;
-      border: 1px solid #E4BD78;
+      border: 1px solid #2B4A21;
     }
     .timer-head {
       font-size: 1.9rem;
       font-weight: 700;
       font-family: 'Playfair Display', serif;
-      color: #2C5A2B;
+      color: #2B4A21;
       margin-bottom: 1.3rem;
     }
     .timer-flex {
@@ -144,19 +140,18 @@
       margin-bottom: 1.8rem;
     }
     .timer-item {
-      background: rgba(228, 189, 120, 0.3);
-      backdrop-filter: blur(4px);
+      background: rgba(255,255,240,0.6);
       border-radius: 36px;
       padding: 0.9rem 1.5rem;
       min-width: 100px;
       text-align: center;
-      border: 1px solid #E4BD78;
+      border: 1px solid #2B4A21;
     }
     .timer-num {
       font-size: 2.8rem;
       font-weight: 800;
       font-family: 'Playfair Display', monospace;
-      color: #2C5A2B;
+      color: #2B4A21;
       line-height: 1.2;
     }
     .timer-label {
@@ -165,23 +160,22 @@
       letter-spacing: 2px;
       font-family: 'Inter', sans-serif;
       font-weight: 500;
-      color: #5c815a;
+      color: #2B4A21;
     }
     .map-btn {
-      background: #E4BD78;
+      background: #2B4A21;
       border: none;
       padding: 14px 32px;
       border-radius: 60px;
       font-weight: 700;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
-      color: #2b3b1f;
+      color: #E4BD78;
       cursor: pointer;
       transition: 0.2s;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .map-btn:hover {
-      background: #f3cf95;
+      background: #3a662d;
       transform: translateY(-2px);
     }
     .map-slide {
@@ -199,24 +193,23 @@
       width: 100%;
       height: 380px;
       border-radius: 32px;
-      border: 2px solid #E4BD78;
+      border: 2px solid #2B4A21;
     }
 
     .schedule-card {
       margin: 2.2rem 0;
-      background: #FEF8EF;
+      background: rgba(43, 74, 33, 0.06);
       border-radius: 56px;
       padding: 1.2rem;
-      border: 1px solid #E4BD78;
+      border: 1px solid #2B4A21;
     }
     .schedule-title {
       font-family: 'Playfair Display', serif;
       font-weight: 800;
       font-size: 2.7rem;
       text-align: center;
-      color: #2C5A2B;
+      color: #2B4A21;
       margin: 0.8rem 0 1.4rem;
-      letter-spacing: 1px;
     }
     .schedule-img {
       width: 100%;
@@ -224,44 +217,42 @@
       display: block;
     }
 
-    /* Блок dress-code */
     .dresscode-card {
-      background: #FEF4E6;
+      background: rgba(43, 74, 33, 0.08);
       border-radius: 44px;
       padding: 1.6rem 2rem;
       margin-bottom: 2rem;
-      border-left: 8px solid #E4BD78;
+      border-left: 8px solid #2B4A21;
       text-align: center;
     }
     .dresscode-title {
       font-family: 'Playfair Display', serif;
       font-weight: 800;
       font-size: 1.7rem;
-      color: #2C5A2B;
+      color: #2B4A21;
       margin-bottom: 0.7rem;
     }
     .dresscode-text {
       font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
       font-weight: 500;
-      color: #4a6741;
+      color: #2B4A21;
       line-height: 1.45;
     }
 
     .form-card {
-      background: #FEF8F0;
+      background: rgba(43, 74, 33, 0.06);
       border-radius: 48px;
       padding: 2rem;
       margin-top: 1.2rem;
-      border-left: 6px solid #E4BD78;
-      border-bottom: 1px solid #E4BD78;
+      border-left: 6px solid #2B4A21;
     }
     .form-title {
       font-size: 2rem;
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      color: #2C5A2B;
+      color: #2B4A21;
     }
     .input-group {
       margin-bottom: 1.6rem;
@@ -271,29 +262,27 @@
       font-weight: 600;
       font-family: 'Inter', sans-serif;
       margin-bottom: 8px;
-      color: #3f603c;
+      color: #2B4A21;
       font-size: 1rem;
     }
     input, textarea, select {
       width: 100%;
       padding: 14px 18px;
       border-radius: 60px;
-      border: 1.5px solid #E4BD78;
-      background: #FFFFFF;
+      border: 1.5px solid #2B4A21;
+      background: #FFFFF0;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
-      transition: 0.2s;
     }
     input:focus, textarea:focus {
       outline: none;
-      border-color: #c4985a;
+      border-color: #E4BD78;
       box-shadow: 0 0 0 3px rgba(228,189,120,0.3);
     }
     textarea {
       border-radius: 32px;
       resize: vertical;
     }
-    /* радио кнопки — вертикальный стек */
     .radio-group-vertical {
       display: flex;
       flex-direction: column;
@@ -313,6 +302,7 @@
       font-family: 'Inter', sans-serif;
       margin-bottom: 0;
       cursor: pointer;
+      color: #2B4A21;
     }
     input[type="radio"] {
       width: 18px;
@@ -321,7 +311,7 @@
       margin: 0;
     }
     .send-btn {
-      background: #E4BD78;
+      background: #2B4A21;
       border: none;
       padding: 16px;
       width: 100%;
@@ -329,27 +319,26 @@
       font-weight: 800;
       font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
-      color: #2b3b1f;
+      color: #E4BD78;
       cursor: pointer;
       margin-top: 18px;
       transition: 0.2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     .send-btn:hover {
-      background: #f0ca8c;
+      background: #3a662d;
       transform: translateY(-2px);
     }
     hr {
       margin: 30px 0 16px;
       border: 0;
       height: 2px;
-      background: #E4BD78;
+      background: #2B4A21;
     }
     .footer-note {
       text-align: center;
       font-size: 0.9rem;
       font-weight: 500;
-      color: #7f9a6b;
+      color: #2B4A21;
       font-family: 'Inter', sans-serif;
     }
 
@@ -382,16 +371,6 @@
       .timer-num {
         font-size: 2rem;
       }
-      .timer-item {
-        min-width: 70px;
-        padding: 0.5rem 0.8rem;
-      }
-      .dresscode-title {
-        font-size: 1.4rem;
-      }
-      .form-title {
-        font-size: 1.6rem;
-      }
     }
   </style>
 </head>
@@ -400,7 +379,7 @@
   <div class="beige-card">
     
     <div class="hero-section">
-      <img class="hero-image" src="МЫ.jpg" alt="Артём и Анастасия">
+      <img class="hero-image" src="МЫ.png" alt="Артём и Анастасия">
     </div>
 
     <div class="names-calligraphy">
@@ -425,9 +404,8 @@
         <div class="timer-item"><div class="timer-num" id="minutes">00</div><div class="timer-label">Минут</div></div>
         <div class="timer-item"><div class="timer-num" id="seconds">00</div><div class="timer-label">Секунд</div></div>
       </div>
-      <button class="map-btn" id="toggleMap">📍 Показать место проведения (Парк-отель Новый Век, Энгельс)</button>
+      <button class="map-btn" id="toggleMap">📍 Показать место проведения</button>
       <div id="mapSlide" class="map-slide">
-        <!-- карта с правильной меткой: координаты + стиль метки -->
         <iframe class="map-frame" 
                 src="https://yandex.ru/map-widget/v1/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169,pm2rdm&l=map"
                 frameborder="0"
@@ -435,7 +413,6 @@
       </div>
     </div>
 
-    <!-- Дресс-код блок -->
     <div class="dresscode-card">
       <div class="dresscode-title">✨ Дресс-код ✨</div>
       <div class="dresscode-text">
@@ -445,9 +422,8 @@
 
     <div class="schedule-card">
       <div class="schedule-title">Свадебная программа</div>
-      <!-- SVG с увеличенным шрифтом (22px) и эмодзи для наглядности -->
-      <img class="schedule-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 860 420'%3E%3Crect width='860' height='420' fill='%23FFFDF9' rx='40'/%3E%3Cline x1='100' y1='60' x2='760' y2='60' stroke='%23E4BD78' stroke-width='3'/%3E%3Ctext x='110' y='118' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E⏰ 14:00 — Сбор гостей, фуршет%3C/text%3E%3Ctext x='110' y='175' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E📖 15:00 — Интервью гостей%3C/text%3E%3Ctext x='110' y='232' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E💍 15:45 — Церемония регистрации%3C/text%3E%3Ctext x='110' y='289' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E📸 16:30 — Фотосессия%3C/text%3E%3Ctext x='110' y='346' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E🍽️ 17:00 — Банкет%3C/text%3E%3Ctext x='110' y='403' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232C5A2B'%3E🌙 23:00 — Конец мероприятия%3C/text%3E%3C/svg%3E"
-           alt="Расписание свадебного дня">
+      <img class="schedule-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 860 420'%3E%3Crect width='860' height='420' fill='%23E4BD78' rx='40'/%3E%3Cline x1='100' y1='60' x2='760' y2='60' stroke='%232B4A21' stroke-width='3'/%3E%3Ctext x='110' y='118' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E⏰ 14:00 — Сбор гостей, фуршет%3C/text%3E%3Ctext x='110' y='175' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E📖 15:00 — Интервью гостей%3C/text%3E%3Ctext x='110' y='232' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E💍 15:45 — Церемония регистрации%3C/text%3E%3Ctext x='110' y='289' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E📸 16:30 — Фотосессия%3C/text%3E%3Ctext x='110' y='346' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E🍽️ 17:00 — Банкет%3C/text%3E%3Ctext x='110' y='403' font-family='Playfair Display, Georgia, serif' font-weight='600' font-size='22' fill='%232B4A21'%3E🌙 23:00 — Конец мероприятия%3C/text%3E%3C/svg%3E"
+           alt="Расписание">
     </div>
 
     <div class="form-card">
@@ -484,7 +460,6 @@
           <textarea rows="2" placeholder="Счастья! ❤️"></textarea>
         </div>
         <button type="submit" class="send-btn">Отправить ответ</button>
-        <p style="text-align: center; font-size: 0.75rem; margin-top: 14px; color:#8baa78;">Ваш ответ будет отправлен организаторам</p>
       </form>
     </div>
     <hr>
@@ -522,23 +497,19 @@
   btnMap.addEventListener('click', () => {
     if (!openMap) {
       slide.classList.add('open');
-      btnMap.innerHTML = '🗺️ Скрыть карту (Парк-отель Новый Век)';
+      btnMap.innerHTML = '🗺️ Скрыть карту';
       openMap = true;
     } else {
       slide.classList.remove('open');
-      btnMap.innerHTML = '📍 Показать место проведения (Парк-отель Новый Век, Энгельс)';
+      btnMap.innerHTML = '📍 Показать место проведения';
       openMap = false;
     }
-  });
-  const iframeMap = document.querySelector('.map-frame');
-  iframeMap.addEventListener('click', () => {
-    window.open('https://yandex.ru/maps/?ll=46.130309,51.478169&z=17&pt=46.130309,51.478169&mode=search', '_blank');
   });
 
   const formEl = document.getElementById('rsvpForm');
   formEl.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Спасибо! Ваш ответ на приглашение сохранен.');
+    alert('Спасибо! Ваш ответ сохранен.');
   });
 </script>
 </body>
