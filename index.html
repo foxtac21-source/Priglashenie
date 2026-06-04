@@ -1,715 +1,670 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Свадебное приглашение | Артём & Анастасия</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Свадебное приглашение | Артём & Анастасия</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    html {
-      font-size: 16px;
-    }
+        body {
+            background: #C6CDBB;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
 
-    body {
-      background-color: #C6CDBB;
-      font-family: 'Playfair Display', 'Georgia', serif;
-      line-height: 1.45;
-      min-height: 100vh;
-      padding: 0;
-      margin: 0;
-    }
+        .container {
+            max-width: 620px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+            background: #E4BD78;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
 
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:opsz,wght@14..32,300;400;500;600&display=swap');
+        .hero-image-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
 
-    .wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px 16px;
-    }
+        .hero-image {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            object-position: center 60%;
+            transition: transform 0.6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+        }
 
-    .beige-card {
-      background-color: #E4BD78;
-      border-radius: 40px 32px 40px 32px;
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
-      padding: 1.5rem;
-    }
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, #E4BD78, transparent);
+            pointer-events: none;
+        }
 
-    .hero-section {
-      position: relative;
-      margin-bottom: 1.5rem;
-    }
-    .hero-image {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      object-position: center 65%;
-      border-radius: 32px;
-      display: block;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .hero-section::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 70px;
-      background: linear-gradient(to bottom, rgba(228, 189, 120, 0) 0%, #E4BD78 100%);
-      pointer-events: none;
-      border-radius: 0 0 32px 32px;
-    }
+        .content-block {
+            padding: 2rem 2rem 1.5rem;
+            text-align: center;
+        }
 
-    .names-calligraphy {
-      text-align: center;
-      margin: 0.5rem 0 1.2rem;
-    }
-    .names-calligraphy h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      font-weight: 800;
-      color: #2B4A21;
-      letter-spacing: 2px;
-    }
-    .ampersand {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
-      font-weight: 800;
-      color: #2B4A21;
-      display: inline-block;
-      margin: 0 4px;
-    }
+        .names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.4rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #2B4A21, #1e3a1a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
 
-    .main-title {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-weight: 800;
-      font-size: 1.6rem;
-      color: #2B4A21;
-      margin: 0 0 1.5rem 0;
-      border-bottom: 3px solid #2B4A21;
-      display: inline-block;
-      width: auto;
-      padding-bottom: 6px;
-    }
-    .title-center {
-      text-align: center;
-    }
+        .date-badge {
+            display: inline-block;
+            background: rgba(43, 74, 33, 0.15);
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #2B4A21;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(43, 74, 33, 0.2);
+        }
 
-    .invite-block {
-      background: rgba(43, 74, 33, 0.1);
-      border-radius: 36px;
-      padding: 1.2rem 1rem;
-      text-align: center;
-      margin-bottom: 1.8rem;
-      border-left: 6px solid #2B4A21;
-    }
-    .invite-text {
-      font-size: 1.3rem;
-      font-weight: 600;
-      font-family: 'Playfair Display', serif;
-      color: #2B4A21;
-      background: rgba(255,255,240,0.7);
-      display: inline-block;
-      padding: 8px 20px;
-      border-radius: 50px;
-    }
+        .intro-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2B4A21;
+            max-width: 90%;
+            margin: 0 auto;
+        }
 
-    .timer-area {
-      background: rgba(43, 74, 33, 0.08);
-      border-radius: 40px;
-      padding: 1.2rem;
-      text-align: center;
-      margin-bottom: 1.8rem;
-      border: 1px solid #2B4A21;
-    }
-    .timer-head {
-      font-size: 1.4rem;
-      font-weight: 700;
-      font-family: 'Playfair Display', serif;
-      color: #2B4A21;
-      margin-bottom: 1rem;
-    }
-    .timer-flex {
-      display: flex;
-      justify-content: center;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-    .timer-item {
-      background: rgba(255,255,240,0.6);
-      border-radius: 24px;
-      padding: 0.4rem 0.8rem;
-      min-width: 65px;
-      text-align: center;
-      border: 1px solid #2B4A21;
-    }
-    .timer-num {
-      font-size: 1.8rem;
-      font-weight: 800;
-      font-family: 'Playfair Display', monospace;
-      color: #2B4A21;
-      line-height: 1.2;
-    }
-    .timer-label {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      color: #2B4A21;
-    }
-    .map-btn {
-      background: #2B4A21;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      color: #E4BD78;
-      cursor: pointer;
-      transition: 0.2s;
-      width: 100%;
-      max-width: 300px;
-      margin: 0 auto;
-      display: block;
-    }
-    .map-btn:hover {
-      background: #3a662d;
-    }
-    .map-slide {
-      overflow: hidden;
-      transition: max-height 0.4s ease-out;
-      max-height: 0;
-      margin-top: 0;
-      border-radius: 28px;
-    }
-    .map-slide.open {
-      max-height: 400px;
-      margin-top: 1rem;
-    }
-    .map-frame {
-      width: 100%;
-      height: 280px;
-      border-radius: 28px;
-      border: 2px solid #2B4A21;
-    }
+        .ornament {
+            font-size: 1.2rem;
+            letter-spacing: 6px;
+            color: rgba(43, 74, 33, 0.4);
+            margin: 1rem 0;
+        }
 
-    /* ========== СВАДЕБНАЯ ПРОГРАММА — ОГРОМНАЯ ========== */
-    .schedule-card {
-      margin: 1.8rem 0;
-      background: rgba(43, 74, 33, 0.1);
-      border-radius: 48px;
-      padding: 1.5rem;
-      border: 2px solid #2B4A21;
-    }
-    .schedule-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 800;
-      font-size: 2.2rem;
-      text-align: center;
-      color: #2B4A21;
-      margin: 0 0 1.5rem 0;
-      letter-spacing: 2px;
-    }
-    /* КАЖДЫЙ ПУНКТ — ОТДЕЛЬНАЯ БОЛЬШАЯ СТРОКА */
-    .schedule-item {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 18px 15px;
-      border-bottom: 1px solid rgba(43, 74, 33, 0.2);
-    }
-    .schedule-item:last-child {
-      border-bottom: none;
-    }
-    .schedule-time {
-      font-family: 'Playfair Display', monospace;
-      font-weight: 800;
-      font-size: 1.5rem;
-      color: #2B4A21;
-      background: rgba(43, 74, 33, 0.1);
-      padding: 8px 16px;
-      border-radius: 50px;
-      min-width: 110px;
-      text-align: center;
-    }
-    .schedule-desc {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 1.25rem;
-      color: #2B4A21;
-      line-height: 1.4;
-    }
-    .schedule-icon {
-      font-size: 2rem;
-      min-width: 50px;
-      text-align: center;
-    }
+        /* Таймер */
+        .timer-wrapper {
+            background: rgba(43, 74, 33, 0.08);
+            border-radius: 28px;
+            padding: 1.5rem;
+            margin: 1rem 0 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(43, 74, 33, 0.15);
+        }
 
-    .dresscode-card {
-      background: rgba(43, 74, 33, 0.08);
-      border-radius: 36px;
-      padding: 1.2rem;
-      margin-bottom: 1.5rem;
-      border-left: 6px solid #2B4A21;
-      text-align: center;
-    }
-    .dresscode-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 800;
-      font-size: 1.5rem;
-      color: #2B4A21;
-      margin-bottom: 0.7rem;
-    }
-    .dresscode-text {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: #2B4A21;
-      line-height: 1.45;
-    }
+        .timer-title {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2B4A21;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
 
-    .form-card {
-      background: rgba(43, 74, 33, 0.06);
-      border-radius: 40px;
-      padding: 1.2rem;
-      margin-top: 1rem;
-      border-left: 5px solid #2B4A21;
-    }
-    .form-title {
-      font-size: 1.6rem;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-      color: #2B4A21;
-    }
-    .input-group {
-      margin-bottom: 1.2rem;
-    }
-    .input-group label {
-      display: block;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      margin-bottom: 6px;
-      color: #2B4A21;
-      font-size: 0.9rem;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 40px;
-      border: 1.5px solid #2B4A21;
-      background: #FFFFF0;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-    }
-    textarea {
-      border-radius: 24px;
-    }
-    .radio-group-vertical {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      margin-top: 4px;
-    }
-    .radio-row {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .radio-row label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-      font-size: 0.9rem;
-      margin-bottom: 0;
-    }
-    input[type="radio"] {
-      width: 18px;
-      height: 18px;
-      accent-color: #E4BD78;
-      margin: 0;
-    }
-    
-    .send-btn {
-      background: #2B4A21;
-      border: none;
-      padding: 14px;
-      width: 100%;
-      border-radius: 50px;
-      font-weight: 800;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      color: #E4BD78;
-      cursor: pointer;
-      margin-top: 12px;
-    }
-    .send-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-    
-    .status-message {
-      text-align: center;
-      margin-top: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      padding: 6px;
-      border-radius: 30px;
-    }
-    .status-loading { color: #2B4A21; background: rgba(43,74,33,0.15); }
-    .status-success { color: #2B4A21; background: rgba(43,74,33,0.2); }
-    .status-error { color: #a11d1d; background: rgba(161,29,29,0.1); }
-    
-    .error-border {
-      border-color: #d43f3f !important;
-      background-color: #fff5f5 !important;
-    }
-    
-    hr {
-      margin: 20px 0 12px;
-      border: 0;
-      height: 2px;
-      background: #2B4A21;
-    }
-    .footer-note {
-      text-align: center;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #2B4A21;
-      font-family: 'Inter', sans-serif;
-    }
+        .timer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
 
-    /* МОБИЛЬНАЯ ВЕРСИЯ — ТОЖЕ БОЛЬШАЯ */
-    @media (max-width: 650px) {
-      .schedule-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 20px 12px;
-      }
-      .schedule-time {
-        font-size: 1.3rem;
-        min-width: auto;
-      }
-      .schedule-desc {
-        font-size: 1.15rem;
-      }
-      .schedule-icon {
-        font-size: 1.8rem;
-      }
-      .schedule-title {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
+        .timer-item {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 0.8rem 1rem;
+            min-width: 70px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(43, 74, 33, 0.15);
+        }
+
+        .timer-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2B4A21;
+            font-family: 'Montserrat', monospace;
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #2B4A21;
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+
+        /* Локация */
+        .location-card {
+            background: rgba(43, 74, 33, 0.08);
+            border-radius: 28px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            text-align: center;
+            transition: all 0.4s;
+            border: 1px solid rgba(43, 74, 33, 0.15);
+            cursor: pointer;
+        }
+
+        .location-card:hover {
+            transform: translateY(-3px);
+            background: rgba(43, 74, 33, 0.12);
+            border-color: #2B4A21;
+        }
+
+        .location-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2B4A21;
+            margin-bottom: 0.5rem;
+        }
+
+        .address {
+            color: #2B4A21;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .address i {
+            color: #2B4A21;
+            margin-right: 6px;
+        }
+
+        /* РАСПИСАНИЕ — КАК В ТОМ ПРИМЕРЕ: КОМПАКТНО И ЧИТАБЕЛЬНО */
+        .schedule-grid {
+            margin: 1rem 0;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0.9rem 0;
+            border-bottom: 1px dashed rgba(43, 74, 33, 0.2);
+        }
+
+        .schedule-time {
+            font-weight: 700;
+            color: #2B4A21;
+            min-width: 85px;
+            font-size: 1rem;
+        }
+
+        .schedule-desc {
+            color: #2B4A21;
+            text-align: left;
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        /* Дресс-код */
+        .dresscode-block {
+            background: rgba(43, 74, 33, 0.06);
+            border-radius: 24px;
+            padding: 1.2rem;
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid #2B4A21;
+        }
+
+        .dresscode-title {
+            font-weight: 600;
+            color: #2B4A21;
+            letter-spacing: 2px;
+            margin-bottom: 0.7rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .dresscode-text {
+            font-size: 0.9rem;
+            color: #2B4A21;
+            line-height: 1.5;
+        }
+
+        /* ФОРМА */
+        .form-group {
+            margin-bottom: 1.3rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #2B4A21;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(43, 74, 33, 0.25);
+            border-radius: 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s;
+        }
+
+        textarea {
+            border-radius: 24px;
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2B4A21;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(43, 74, 33, 0.1);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 12px 20px;
+            border-radius: 60px;
+            border: 1px solid rgba(43, 74, 33, 0.2);
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            flex-shrink: 0;
+            accent-color: #2B4A21;
+            cursor: pointer;
+        }
+
+        .radio-option span {
+            font-size: 1rem;
+            color: #2B4A21;
+            cursor: pointer;
+        }
+
+        button {
+            background: #2B4A21;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 60px;
+            font-weight: 600;
+            color: #E4BD78;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 0.8rem;
+        }
+
+        button:hover:not(:disabled) {
+            background: #3a5e2e;
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 12px;
+            border-radius: 60px;
+            text-align: center;
+            background: rgba(43, 74, 33, 0.1);
+            color: #2B4A21;
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.7rem;
+            color: #2B4A21;
+            background: rgba(43, 74, 33, 0.05);
+            border-top: 1px solid rgba(43, 74, 33, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .content-block {
+                padding: 1.5rem;
+            }
+            .names {
+                font-size: 2.5rem;
+            }
+            .timer-number {
+                font-size: 1.6rem;
+            }
+            .timer-item {
+                min-width: 60px;
+                padding: 0.5rem 0.8rem;
+            }
+            .schedule-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3rem;
+            }
+            .schedule-time {
+                min-width: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="wrapper">
-  <div class="beige-card">
-    
-    <div class="hero-section">
-      <img class="hero-image" src="МЫ.jpg" alt="Артём и Анастасия">
+
+<div class="container">
+    <div class="hero-image-wrapper">
+        <img src="МЫ.jpg" alt="Артём и Анастасия" class="hero-image">
+        <div class="hero-overlay"></div>
     </div>
 
-    <div class="names-calligraphy">
-      <h1>Артём <span class="ampersand">&</span> Анастасия</h1>
-    </div>
-
-    <div class="title-center">
-      <div class="main-title">ПРИГЛАШЕНИЕ НА СВАДЬБУ</div>
-    </div>
-
-    <div class="invite-block">
-      <div class="invite-text">
-        Приглашаем вас принять участие в создании нашей семьи
-      </div>
-    </div>
-
-    <div class="timer-area">
-      <div class="timer-head">До торжества осталось</div>
-      <div class="timer-flex">
-        <div class="timer-item"><div class="timer-num" id="days">00</div><div class="timer-label">Дней</div></div>
-        <div class="timer-item"><div class="timer-num" id="hours">00</div><div class="timer-label">Часов</div></div>
-        <div class="timer-item"><div class="timer-num" id="minutes">00</div><div class="timer-label">Минут</div></div>
-        <div class="timer-item"><div class="timer-num" id="seconds">00</div><div class="timer-label">Секунд</div></div>
-      </div>
-      <button class="map-btn" id="toggleMap">📍 Открыть карту (Парк-отель Новый Век, г. Энгельс)</button>
-      <div id="mapSlide" class="map-slide">
-        <iframe class="map-frame" 
-                src="https://yandex.ru/map-widget/v1/?ll=46.150822,51.450893&z=18&pt=46.150822,51.450893,pm2rdm&l=map"
-                frameborder="0"
-                allowfullscreen="true"></iframe>
-      </div>
-    </div>
-
-    <div class="dresscode-card">
-      <div class="dresscode-title">✨ Дресс-код ✨</div>
-      <div class="dresscode-text">
-        Будем счастливы видеть вас в любом наряде, который дарит вам радость и комфорт.<br>
-        Если возможно, отдайте предпочтение спокойным, нежным оттенкам — это поможет сохранить особую атмосферу нашего праздника.
-      </div>
-    </div>
-
-    <!-- ========== СВАДЕБНАЯ ПРОГРАММА — ОГРОМНАЯ И РАСТЯНУТАЯ ========== -->
-    <div class="schedule-card">
-      <div class="schedule-title">Свадебная программа</div>
-      
-      <div class="schedule-item">
-        <div class="schedule-icon">⏰</div>
-        <div class="schedule-time">14:00</div>
-        <div class="schedule-desc">Сбор гостей, фуршет</div>
-      </div>
-      
-      <div class="schedule-item">
-        <div class="schedule-icon">📖</div>
-        <div class="schedule-time">15:00</div>
-        <div class="schedule-desc">Интервью гостей</div>
-      </div>
-      
-      <div class="schedule-item">
-        <div class="schedule-icon">💍</div>
-        <div class="schedule-time">15:45</div>
-        <div class="schedule-desc">Церемония регистрации</div>
-      </div>
-      
-      <div class="schedule-item">
-        <div class="schedule-icon">📸</div>
-        <div class="schedule-time">16:30</div>
-        <div class="schedule-desc">Фотосессия</div>
-      </div>
-      
-      <div class="schedule-item">
-        <div class="schedule-icon">🍽️</div>
-        <div class="schedule-time">17:00</div>
-        <div class="schedule-desc">Банкет</div>
-      </div>
-      
-      <div class="schedule-item">
-        <div class="schedule-icon">🌙</div>
-        <div class="schedule-time">23:00</div>
-        <div class="schedule-desc">Конец мероприятия</div>
-      </div>
-    </div>
-
-    <div class="form-card">
-      <div class="form-title">Подтверждение присутствия</div>
-      <form id="rsvpForm">
-        <div class="input-group">
-          <label>Ваше ФИО *</label>
-          <input type="text" id="fullname" placeholder="Иванов Иван" required>
+    <div class="content-block">
+        <div class="names">Артём & Анастасия</div>
+        <div class="date-badge">26 АВГУСТА 2026</div>
+        <div class="intro-text">
+            Приглашаем вас стать частью нашей истории —<br>
+            дня, когда мы станем семьёй.
         </div>
-        <div class="input-group">
-          <label>Придете ли вы на церемонию? *</label>
-          <div class="radio-group-vertical">
-            <div class="radio-row"><label><input type="radio" name="ceremony" value="Да"> Да, буду на церемонии</label></div>
-            <div class="radio-row"><label><input type="radio" name="ceremony" value="Нет"> Нет, не смогу прийти</label></div>
-          </div>
-        </div>
-        <div class="input-group">
-          <label>Придете ли вы на банкет? *</label>
-          <div class="radio-group-vertical">
-            <div class="radio-row"><label><input type="radio" name="banquet" value="Да"> Да, буду на банкете</label></div>
-            <div class="radio-row"><label><input type="radio" name="banquet" value="Нет"> Нет, не смогу</label></div>
-          </div>
-        </div>
-        <div class="input-group">
-          <label>Ваш комментарий</label>
-          <textarea id="comment" rows="2" placeholder="Счастья! ❤️"></textarea>
-        </div>
-        <button type="submit" class="send-btn" id="submitBtn">Отправить ответ</button>
-        <div id="statusMessage" class="status-message"></div>
-      </form>
+        <div class="ornament">✦ ✦ ✦</div>
     </div>
-    <hr>
-    <div class="footer-note">26 августа 2026 · Парк-отель Новый Век, г. Энгельс</div>
-  </div>
+
+    <!-- Локация -->
+    <div class="content-block" style="padding-top: 0;">
+        <div class="location-card" id="locationCard">
+            <div class="location-name">Парк-отель «Новый Век»</div>
+            <div class="address">
+                <i class="fas fa-map-marker-alt"></i> г. Энгельс, Саратовская область
+            </div>
+        </div>
+    </div>
+
+    <!-- Таймер -->
+    <div class="content-block" style="padding-top: 0;">
+        <div class="timer-wrapper">
+            <div class="timer-title"><i class="far fa-hourglass-half"></i> До торжества осталось</div>
+            <div class="timer-grid" id="timerGrid">
+                <div class="timer-item"><div class="timer-number" id="days">00</div><div class="timer-label">дней</div></div>
+                <div class="timer-item"><div class="timer-number" id="hours">00</div><div class="timer-label">часов</div></div>
+                <div class="timer-item"><div class="timer-number" id="minutes">00</div><div class="timer-label">минут</div></div>
+                <div class="timer-item"><div class="timer-number" id="seconds">00</div><div class="timer-label">секунд</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Свадебная программа — КОМПАКТНО, КРАСИВО, ЧИТАБЕЛЬНО -->
+    <div class="content-block" style="padding-top: 0;">
+        <div class="schedule-grid">
+            <div class="schedule-item"><div class="schedule-time">14:00</div><div class="schedule-desc">Сбор гостей, фуршет</div></div>
+            <div class="schedule-item"><div class="schedule-time">15:00</div><div class="schedule-desc">Интервью гостей</div></div>
+            <div class="schedule-item"><div class="schedule-time">15:45</div><div class="schedule-desc">Церемония регистрации</div></div>
+            <div class="schedule-item"><div class="schedule-time">16:30</div><div class="schedule-desc">Фотосессия</div></div>
+            <div class="schedule-item"><div class="schedule-time">17:00</div><div class="schedule-desc">Банкет</div></div>
+            <div class="schedule-item"><div class="schedule-time">23:00</div><div class="schedule-desc">Конец мероприятия</div></div>
+        </div>
+    </div>
+
+    <!-- Дресс-код -->
+    <div class="content-block" style="padding-top: 0;">
+        <div class="dresscode-block">
+            <div class="dresscode-title"><i class="fas fa-feather-alt"></i> Дресс-код <i class="fas fa-feather-alt"></i></div>
+            <div class="dresscode-text">
+                Будем счастливы видеть вас в любом наряде, который дарит вам радость и комфорт.<br>
+                Если возможно, отдайте предпочтение спокойным, нежным оттенкам — это поможет сохранить особую атмосферу нашего праздника.
+            </div>
+        </div>
+    </div>
+
+    <!-- Форма подтверждения -->
+    <div class="content-block" style="padding-top: 0;">
+        <div style="font-size: 0.85rem; margin-bottom: 1.2rem; color: #2B4A21; font-weight: 500;">
+            <i class="far fa-calendar-check"></i> Пожалуйста, подтвердите своё присутствие
+        </div>
+        <form id="rsvpForm">
+            <div class="form-group">
+                <label>Ваше ФИО</label>
+                <input type="text" id="guestName" placeholder="Иванов Иван" required>
+            </div>
+            <div class="form-group">
+                <label>Вы придёте на церемонию?</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="ceremony" value="Да, буду на церемонии" required>
+                        <span>✨ Да, буду на церемонии</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="ceremony" value="Нет, не смогу прийти">
+                        <span>🌿 Нет, не смогу прийти</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Вы придёте на банкет?</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="banquet" value="Да, буду на банкете" required>
+                        <span>🍽️ Да, буду на банкете</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="banquet" value="Нет, не смогу">
+                        <span>🌿 Нет, не смогу</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Ваш комментарий</label>
+                <textarea id="comment" placeholder="Счастья! ❤️"></textarea>
+            </div>
+            <button type="submit" id="submitBtn"><i class="fas fa-envelope"></i> Отправить подтверждение</button>
+            <div id="formMessage" class="form-message"></div>
+        </form>
+    </div>
+
+    <div class="footer"><i class="fas fa-heart"></i> Артём & Анастасия · 26.08.2026 · Парк-отель «Новый Век» <i class="fas fa-heart"></i></div>
 </div>
 
 <script>
-  function timerTick() {
-    const target = new Date(2026, 7, 26, 14, 0, 0);
-    const now = new Date();
-    const diff = target - now;
-    if (diff <= 0) {
-      document.getElementById('days').innerText = '00';
-      document.getElementById('hours').innerText = '00';
-      document.getElementById('minutes').innerText = '00';
-      document.getElementById('seconds').innerText = '00';
-      return;
-    }
-    const days = Math.floor(diff / (1000*60*60*24));
-    const hours = Math.floor((diff % (86400000)) / 3600000);
-    const mins = Math.floor((diff % 3600000) / 60000);
-    const secs = Math.floor((diff % 60000) / 1000);
-    document.getElementById('days').innerText = days < 10 ? '0'+days : days;
-    document.getElementById('hours').innerText = hours < 10 ? '0'+hours : hours;
-    document.getElementById('minutes').innerText = mins < 10 ? '0'+mins : mins;
-    document.getElementById('seconds').innerText = secs < 10 ? '0'+secs : secs;
-  }
-  timerTick();
-  setInterval(timerTick, 1000);
-
-  const btnMap = document.getElementById('toggleMap');
-  const slide = document.getElementById('mapSlide');
-  let openMap = false;
-  btnMap.addEventListener('click', () => {
-    if (!openMap) {
-      slide.classList.add('open');
-      btnMap.innerHTML = '🗺️ Скрыть карту (Парк-отель Новый Век, г. Энгельс)';
-      openMap = true;
-    } else {
-      slide.classList.remove('open');
-      btnMap.innerHTML = '📍 Открыть карту (Парк-отель Новый Век, г. Энгельс)';
-      openMap = false;
-    }
-  });
-  
-  const iframeMap = document.querySelector('.map-frame');
-  iframeMap.addEventListener('click', () => {
-    window.open('https://yandex.ru/maps/?ll=46.150822,51.450893&z=18&pt=46.150822,51.450893&mode=search', '_blank');
-  });
-
-  const form = document.getElementById('rsvpForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const statusDiv = document.getElementById('statusMessage');
-  
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwKEfPDQTSt51tzqqU6C3jsnqqUtBxhl7u-Vn2kjGvWya2lkmmp2M_JpO90jEUs4Uvx/exec';
-  
-  function validateName(name) {
-    const trimmed = name.trim();
-    if (trimmed === '') return false;
-    const words = trimmed.split(/\s+/);
-    if (words.length !== 2) return false;
-    const namePattern = /^[a-zA-Zа-яА-ЯёЁ\-']+$/;
-    return words.every(word => namePattern.test(word));
-  }
-  
-  function setStatus(message, type) {
-    statusDiv.textContent = message;
-    statusDiv.className = `status-message status-${type}`;
-  }
-  
-  function clearErrors() {
-    document.getElementById('fullname').classList.remove('error-border');
-    const radioGroups = document.querySelectorAll('.radio-group-vertical');
-    radioGroups.forEach(group => {
-      group.style.border = 'none';
-      group.style.padding = '';
-    });
-  }
-  
-  function showFieldError(fieldName) {
-    if (fieldName === 'fullname') {
-      document.getElementById('fullname').classList.add('error-border');
-    } else if (fieldName === 'ceremony') {
-      const container = document.querySelector('input[name="ceremony"]')?.closest('.radio-group-vertical');
-      if (container) {
-        container.style.border = '1px solid #d43f3f';
-        container.style.borderRadius = '12px';
-        container.style.padding = '6px';
-      }
-    } else if (fieldName === 'banquet') {
-      const container = document.querySelector('input[name="banquet"]')?.closest('.radio-group-vertical');
-      if (container) {
-        container.style.border = '1px solid #d43f3f';
-        container.style.borderRadius = '12px';
-        container.style.padding = '6px';
-      }
-    }
-  }
-  
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    clearErrors();
-    
-    const fullname = document.getElementById('fullname').value.trim();
-    const ceremonyRadio = document.querySelector('input[name="ceremony"]:checked');
-    const banquetRadio = document.querySelector('input[name="banquet"]:checked');
-    const comment = document.getElementById('comment').value.trim();
-    
-    let isValid = true;
-    
-    if (!validateName(fullname)) {
-      showFieldError('fullname');
-      setStatus('Пожалуйста, укажите Фамилию и Имя (ровно два слова, например: Иванов Иван)', 'error');
-      isValid = false;
-      return;
-    }
-    
-    if (!ceremonyRadio) {
-      showFieldError('ceremony');
-      setStatus('Пожалуйста, выберите, придете ли вы на церемонию', 'error');
-      isValid = false;
-      return;
-    }
-    
-    if (!banquetRadio) {
-      showFieldError('banquet');
-      setStatus('Пожалуйста, выберите, придете ли вы на банкет', 'error');
-      isValid = false;
-      return;
-    }
-    
-    if (!isValid) return;
-    
-    const ceremonyValue = ceremonyRadio.value;
-    const banquetValue = banquetRadio.value;
-    
-    submitBtn.disabled = true;
-    submitBtn.textContent = '🔄 Отправляем ваш ответ...';
-    setStatus('Отправляем ваш ответ...', 'loading');
-    
-    try {
-      const formData = new URLSearchParams();
-      formData.append('fullname', fullname);
-      formData.append('ceremony', ceremonyValue);
-      formData.append('banquet', banquetValue);
-      formData.append('comment', comment || '(не оставлен)');
-      formData.append('timestamp', new Date().toLocaleString('ru-RU'));
-      
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formData.toString()
-      });
-      
-      setStatus('✅ Доставлено! Спасибо за ваш ответ!', 'success');
-      submitBtn.textContent = 'Отправить ответ';
-      
-      document.getElementById('fullname').value = '';
-      if (ceremonyRadio) ceremonyRadio.checked = false;
-      if (banquetRadio) banquetRadio.checked = false;
-      document.getElementById('comment').value = '';
-      clearErrors();
-      
-      setTimeout(() => {
-        if (statusDiv.textContent === '✅ Доставлено! Спасибо за ваш ответ!') {
-          setStatus('', '');
+    // Таймер
+    function updateTimer() {
+        const target = new Date(2026, 7, 26, 14, 0, 0);
+        const now = new Date();
+        const diff = target - now;
+        if (diff <= 0) {
+            document.getElementById('days').innerText = '00';
+            document.getElementById('hours').innerText = '00';
+            document.getElementById('minutes').innerText = '00';
+            document.getElementById('seconds').innerText = '00';
+            return;
         }
-      }, 3000);
-      
-    } catch (error) {
-      console.error('Ошибка:', error);
-      setStatus('❌ Ошибка при отправке. Попробуйте еще раз.', 'error');
-      submitBtn.textContent = 'Отправить ответ';
-    } finally {
-      submitBtn.disabled = false;
+        document.getElementById('days').innerText = Math.floor(diff / (1000*60*60*24)).toString().padStart(2, '0');
+        document.getElementById('hours').innerText = Math.floor((diff % (86400000)) / 3600000).toString().padStart(2, '0');
+        document.getElementById('minutes').innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+        document.getElementById('seconds').innerText = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
     }
-  });
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    // Локация — клик по карте
+    const locationCard = document.getElementById('locationCard');
+    if (locationCard) {
+        locationCard.addEventListener('click', () => {
+            const mapsUrl = 'https://yandex.ru/maps/?ll=46.150822,51.450893&z=18&pt=46.150822,51.450893&mode=search';
+            window.open(mapsUrl, '_blank');
+        });
+    }
+
+    // Форма
+    const form = document.getElementById('rsvpForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const messageDiv = document.getElementById('formMessage');
+    const nameInput = document.getElementById('guestName');
+    const ceremonyRadios = document.querySelectorAll('input[name="ceremony"]');
+    const banquetRadios = document.querySelectorAll('input[name="banquet"]');
+    const commentInput = document.getElementById('comment');
+
+    let isSubmitting = false;
+
+    function showMessage(text, isSuccess = true) {
+        messageDiv.style.display = 'block';
+        messageDiv.textContent = text;
+        messageDiv.style.background = isSuccess ? 'rgba(43, 74, 33, 0.15)' : 'rgba(180, 60, 50, 0.15)';
+        messageDiv.style.color = '#2B4A21';
+        setTimeout(() => {
+            if (messageDiv.textContent === text) {
+                messageDiv.style.opacity = '0';
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                    messageDiv.style.opacity = '';
+                }, 400);
+            }
+        }, 4000);
+    }
+
+    function resetForm() {
+        nameInput.value = '';
+        ceremonyRadios.forEach(radio => radio.checked = false);
+        banquetRadios.forEach(radio => radio.checked = false);
+        commentInput.value = '';
+    }
+
+    function validateName(name) {
+        const trimmed = name.trim();
+        if (trimmed === '') return false;
+        const words = trimmed.split(/\s+/);
+        if (words.length !== 2) return false;
+        const namePattern = /^[a-zA-Zа-яА-ЯёЁ\-']+$/;
+        return words.every(word => namePattern.test(word));
+    }
+
+    function validateForm() {
+        const name = nameInput.value.trim();
+        if (!validateName(name)) {
+            showMessage('❌ Пожалуйста, укажите Фамилию и Имя (ровно два слова, например: Иванов Иван)', false);
+            return false;
+        }
+        
+        let ceremonySelected = false;
+        for (let radio of ceremonyRadios) {
+            if (radio.checked) { ceremonySelected = true; break; }
+        }
+        if (!ceremonySelected) {
+            showMessage('❌ Пожалуйста, выберите, придёте ли вы на церемонию', false);
+            return false;
+        }
+        
+        let banquetSelected = false;
+        for (let radio of banquetRadios) {
+            if (radio.checked) { banquetSelected = true; break; }
+        }
+        if (!banquetSelected) {
+            showMessage('❌ Пожалуйста, выберите, придёте ли вы на банкет', false);
+            return false;
+        }
+        return true;
+    }
+
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwKEfPDQTSt51tzqqU6C3jsnqqUtBxhl7u-Vn2kjGvWya2lkmmp2M_JpO90jEUs4Uvx/exec';
+
+    async function sendToTable(name, ceremony, banquet, comment) {
+        const formData = new URLSearchParams();
+        formData.append('fullname', name);
+        formData.append('ceremony', ceremony);
+        formData.append('banquet', banquet);
+        formData.append('comment', comment || '(не оставлен)');
+        formData.append('timestamp', new Date().toLocaleString('ru-RU'));
+        
+        try {
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formData.toString()
+            });
+            return true;
+        } catch (error) {
+            console.error('Ошибка:', error);
+            return false;
+        }
+    }
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        if (isSubmitting) {
+            showMessage('⏳ Подождите, ответ уже отправляется...', false);
+            return;
+        }
+        
+        if (!validateForm()) return;
+        
+        isSubmitting = true;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправляем ваш ответ...';
+        
+        const name = nameInput.value.trim();
+        let ceremonyValue = '';
+        for (let radio of ceremonyRadios) {
+            if (radio.checked) { ceremonyValue = radio.value; break; }
+        }
+        let banquetValue = '';
+        for (let radio of banquetRadios) {
+            if (radio.checked) { banquetValue = radio.value; break; }
+        }
+        const comment = commentInput.value.trim();
+        
+        const success = await sendToTable(name, ceremonyValue, banquetValue, comment);
+        
+        if (success) {
+            showMessage(`✅ Доставлено! Спасибо за ваш ответ!`, true);
+            resetForm();
+        } else {
+            showMessage(`❌ Ошибка при отправке. Попробуйте ещё раз.`, false);
+        }
+        
+        isSubmitting = false;
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-envelope"></i> Отправить подтверждение';
+    });
 </script>
 </body>
 </html>
