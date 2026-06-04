@@ -160,22 +160,14 @@
             font-weight: 500;
         }
 
-        /* Локация */
+        /* Локация с кнопкой и выезжающей картой */
         .location-card {
             background: rgba(43, 74, 33, 0.08);
             border-radius: 28px;
             padding: 1.5rem;
             margin: 1rem 0;
             text-align: center;
-            transition: all 0.4s;
             border: 1px solid rgba(43, 74, 33, 0.15);
-            cursor: pointer;
-        }
-
-        .location-card:hover {
-            transform: translateY(-3px);
-            background: rgba(43, 74, 33, 0.12);
-            border-color: #2B4A21;
         }
 
         .location-name {
@@ -190,6 +182,7 @@
             color: #2B4A21;
             font-size: 0.9rem;
             line-height: 1.5;
+            margin-bottom: 1rem;
         }
 
         .address i {
@@ -197,7 +190,48 @@
             margin-right: 6px;
         }
 
-        /* РАСПИСАНИЕ — НОВОЕ, КАК В ТВОЁМ ПРИМЕРЕ (ЧЁТКОЕ И КОМПАКТНОЕ) */
+        .map-btn {
+            background: #2B4A21;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: #E4BD78;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .map-btn:hover {
+            background: #3a5e2e;
+            transform: translateY(-2px);
+        }
+
+        .map-slide {
+            overflow: hidden;
+            transition: max-height 0.45s ease-out;
+            max-height: 0;
+            margin-top: 0;
+            border-radius: 20px;
+        }
+
+        .map-slide.open {
+            max-height: 320px;
+            margin-top: 1rem;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 280px;
+            border-radius: 20px;
+            border: 2px solid rgba(43, 74, 33, 0.3);
+        }
+
+        /* РАСПИСАНИЕ */
         .schedule-card {
             background: rgba(43, 74, 33, 0.06);
             border-radius: 28px;
@@ -398,6 +432,12 @@
             .schedule-time {
                 min-width: auto;
             }
+            .map-slide.open {
+                max-height: 300px;
+            }
+            .map-frame {
+                height: 240px;
+            }
         }
     </style>
 </head>
@@ -419,12 +459,19 @@
         <div class="ornament">✦ ✦ ✦</div>
     </div>
 
-    <!-- Локация (кликабельная карта) -->
+    <!-- Локация с кнопкой и выезжающей картой -->
     <div class="content-block" style="padding-top: 0;">
-        <div class="location-card" id="locationCard">
+        <div class="location-card">
             <div class="location-name">Парк-отель «Новый Век»</div>
             <div class="address">
                 <i class="fas fa-map-marker-alt"></i> г. Энгельс, Саратовская область
+            </div>
+            <button class="map-btn" id="toggleMap">📍 Показать на карте</button>
+            <div id="mapSlide" class="map-slide">
+                <iframe class="map-frame" 
+                        src="https://yandex.ru/map-widget/v1/?ll=46.150822,51.450893&z=18&pt=46.150822,51.450893,pm2rdm&l=map"
+                        frameborder="0"
+                        allowfullscreen="true"></iframe>
             </div>
         </div>
     </div>
@@ -442,7 +489,7 @@
         </div>
     </div>
 
-    <!-- Свадебная программа — НОВЫЙ БЛОК, НО В ОТДЕЛЬНОЙ КАРТОЧКЕ (как и другие блоки) -->
+    <!-- Свадебная программа -->
     <div class="content-block" style="padding-top: 0;">
         <div class="schedule-card">
             <div class="schedule-grid">
@@ -536,14 +583,21 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // Локация — клик по карте (твои координаты, как было)
-    const locationCard = document.getElementById('locationCard');
-    if (locationCard) {
-        locationCard.addEventListener('click', () => {
-            const mapsUrl = 'https://yandex.ru/maps/?ll=46.150822,51.450893&z=18&pt=46.150822,51.450893&mode=search';
-            window.open(mapsUrl, '_blank');
-        });
-    }
+    // Выезжающая карта
+    const btnMap = document.getElementById('toggleMap');
+    const slide = document.getElementById('mapSlide');
+    let openMap = false;
+    btnMap.addEventListener('click', () => {
+        if (!openMap) {
+            slide.classList.add('open');
+            btnMap.innerHTML = '🗺️ Скрыть карту';
+            openMap = true;
+        } else {
+            slide.classList.remove('open');
+            btnMap.innerHTML = '📍 Показать на карте';
+            openMap = false;
+        }
+    });
 
     // Форма
     const form = document.getElementById('rsvpForm');
