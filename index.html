@@ -2,13 +2,19 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <!-- ЖЁСТКИЙ VIEWPORT ДЛЯ ТЕЛЕФОНОВ - ЗАПРЕЩАЕТ МАСШТАБИРОВАНИЕ И ФИКСИРУЕТ ШИРИНУ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>Свадебное приглашение | Артём & Анастасия</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    /* ГЛОБАЛЬНЫЙ СБРОС ДЛЯ ТЕЛЕФОНОВ */
+    html {
+      font-size: 16px; /* БАЗА ДЛЯ REM */
     }
 
     body {
@@ -25,28 +31,29 @@
     .wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 28px 24px;
+      padding: 20px 16px;
     }
 
     .beige-card {
       background-color: #E4BD78;
-      border-radius: 56px 40px 56px 40px;
-      box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.2);
-      padding: 2.2rem;
+      border-radius: 40px 32px 40px 32px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
     }
 
     .hero-section {
       position: relative;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.5rem;
     }
     .hero-image {
       width: 100%;
-      height: 420px;
+      height: auto;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
       object-position: center 65%;
-      border-radius: 48px;
+      border-radius: 32px;
       display: block;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
     .hero-section::after {
       content: '';
@@ -54,43 +61,43 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 110px;
+      height: 70px;
       background: linear-gradient(to bottom, rgba(228, 189, 120, 0) 0%, #E4BD78 100%);
       pointer-events: none;
-      border-radius: 0 0 48px 48px;
+      border-radius: 0 0 32px 32px;
     }
 
     .names-calligraphy {
       text-align: center;
-      margin: 0.8rem 0 1.8rem 0;
+      margin: 0.5rem 0 1.2rem;
     }
     .names-calligraphy h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 5rem;
+      font-size: 2.8rem;
       font-weight: 800;
       color: #2B4A21;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
     }
     .ampersand {
       font-family: 'Playfair Display', serif;
-      font-size: 4.8rem;
+      font-size: 2.6rem;
       font-weight: 800;
       color: #2B4A21;
       display: inline-block;
-      margin: 0 6px;
+      margin: 0 4px;
     }
 
     .main-title {
       text-align: center;
       font-family: 'Playfair Display', serif;
       font-weight: 800;
-      font-size: 2.3rem;
+      font-size: 1.6rem;
       color: #2B4A21;
-      margin: 0 0 2rem 0;
-      border-bottom: 4px solid #2B4A21;
+      margin: 0 0 1.5rem 0;
+      border-bottom: 3px solid #2B4A21;
       display: inline-block;
       width: auto;
-      padding-bottom: 10px;
+      padding-bottom: 6px;
     }
     .title-center {
       text-align: center;
@@ -98,210 +105,205 @@
 
     .invite-block {
       background: rgba(43, 74, 33, 0.1);
-      border-radius: 48px;
-      padding: 1.8rem 2rem;
+      border-radius: 36px;
+      padding: 1.2rem 1rem;
       text-align: center;
-      margin-bottom: 2.2rem;
-      border-left: 8px solid #2B4A21;
+      margin-bottom: 1.8rem;
+      border-left: 6px solid #2B4A21;
     }
     .invite-text {
-      font-size: 1.8rem;
+      font-size: 1.3rem;
       font-weight: 600;
       font-family: 'Playfair Display', serif;
       color: #2B4A21;
       background: rgba(255,255,240,0.7);
       display: inline-block;
-      padding: 10px 34px;
-      border-radius: 80px;
+      padding: 8px 20px;
+      border-radius: 50px;
     }
 
     .timer-area {
       background: rgba(43, 74, 33, 0.08);
-      border-radius: 52px;
-      padding: 2rem;
+      border-radius: 40px;
+      padding: 1.2rem;
       text-align: center;
-      margin-bottom: 2.2rem;
+      margin-bottom: 1.8rem;
       border: 1px solid #2B4A21;
     }
     .timer-head {
-      font-size: 1.9rem;
+      font-size: 1.4rem;
       font-weight: 700;
       font-family: 'Playfair Display', serif;
       color: #2B4A21;
-      margin-bottom: 1.3rem;
+      margin-bottom: 1rem;
     }
     .timer-flex {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 0.8rem;
       flex-wrap: wrap;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1rem;
     }
     .timer-item {
       background: rgba(255,255,240,0.6);
-      border-radius: 36px;
-      padding: 0.9rem 1.5rem;
-      min-width: 100px;
+      border-radius: 24px;
+      padding: 0.4rem 0.8rem;
+      min-width: 65px;
       text-align: center;
       border: 1px solid #2B4A21;
     }
     .timer-num {
-      font-size: 2.8rem;
+      font-size: 1.8rem;
       font-weight: 800;
       font-family: 'Playfair Display', monospace;
       color: #2B4A21;
       line-height: 1.2;
     }
     .timer-label {
-      font-size: 0.85rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       font-family: 'Inter', sans-serif;
-      font-weight: 500;
+      font-weight: 600;
       color: #2B4A21;
     }
     .map-btn {
       background: #2B4A21;
       border: none;
-      padding: 14px 32px;
-      border-radius: 60px;
+      padding: 12px 20px;
+      border-radius: 50px;
       font-weight: 700;
       font-family: 'Inter', sans-serif;
-      font-size: 1rem;
+      font-size: 0.85rem;
       color: #E4BD78;
       cursor: pointer;
       transition: 0.2s;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      display: block;
     }
     .map-btn:hover {
       background: #3a662d;
-      transform: translateY(-2px);
     }
     .map-slide {
       overflow: hidden;
-      transition: max-height 0.45s ease-out;
+      transition: max-height 0.4s ease-out;
       max-height: 0;
       margin-top: 0;
-      border-radius: 32px;
+      border-radius: 28px;
     }
     .map-slide.open {
-      max-height: 460px;
-      margin-top: 1.5rem;
+      max-height: 400px;
+      margin-top: 1rem;
     }
     .map-frame {
       width: 100%;
-      height: 380px;
-      border-radius: 32px;
+      height: 280px;
+      border-radius: 28px;
       border: 2px solid #2B4A21;
     }
 
     .schedule-card {
-      margin: 2.2rem 0;
+      margin: 1.5rem 0;
       background: rgba(43, 74, 33, 0.06);
-      border-radius: 56px;
-      padding: 1.2rem;
+      border-radius: 40px;
+      padding: 1rem;
       border: 1px solid #2B4A21;
     }
     .schedule-title {
       font-family: 'Playfair Display', serif;
       font-weight: 800;
-      font-size: 2.7rem;
+      font-size: 1.8rem;
       text-align: center;
       color: #2B4A21;
-      margin: 0.8rem 0 1.4rem;
+      margin: 0.5rem 0 1rem;
     }
     .schedule-img {
       width: 100%;
-      border-radius: 44px;
+      border-radius: 32px;
       display: block;
     }
 
-    /* ДРЕСС-КОД — УВЕЛИЧЕННЫЙ ШРИФТ ДЛЯ СТАРИКОВ */
+    /* ДРЕСС-КОД — БОЛЬШОЙ ШРИФТ ДЛЯ СТАРИКОВ */
     .dresscode-card {
       background: rgba(43, 74, 33, 0.08);
-      border-radius: 44px;
-      padding: 1.8rem 2rem;
-      margin-bottom: 2rem;
-      border-left: 8px solid #2B4A21;
+      border-radius: 36px;
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+      border-left: 6px solid #2B4A21;
       text-align: center;
     }
     .dresscode-title {
       font-family: 'Playfair Display', serif;
       font-weight: 800;
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: #2B4A21;
-      margin-bottom: 1rem;
+      margin-bottom: 0.7rem;
     }
     .dresscode-text {
       font-family: 'Inter', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.05rem;
       font-weight: 500;
       color: #2B4A21;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .form-card {
       background: rgba(43, 74, 33, 0.06);
-      border-radius: 48px;
-      padding: 2rem;
-      margin-top: 1.2rem;
-      border-left: 6px solid #2B4A21;
+      border-radius: 40px;
+      padding: 1.2rem;
+      margin-top: 1rem;
+      border-left: 5px solid #2B4A21;
     }
     .form-title {
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       color: #2B4A21;
     }
     .input-group {
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.2rem;
     }
     .input-group label {
       display: block;
       font-weight: 600;
       font-family: 'Inter', sans-serif;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       color: #2B4A21;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
     input, textarea, select {
       width: 100%;
-      padding: 14px 18px;
-      border-radius: 60px;
+      padding: 12px 14px;
+      border-radius: 40px;
       border: 1.5px solid #2B4A21;
       background: #FFFFF0;
       font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #E4BD78;
-      box-shadow: 0 0 0 3px rgba(228,189,120,0.3);
+      font-size: 0.95rem;
     }
     textarea {
-      border-radius: 32px;
-      resize: vertical;
+      border-radius: 24px;
     }
     .radio-group-vertical {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
-      margin-top: 6px;
+      gap: 0.6rem;
+      margin-top: 4px;
     }
     .radio-row {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
     }
     .radio-row label {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       font-weight: 500;
-      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
       margin-bottom: 0;
-      cursor: pointer;
-      color: #2B4A21;
     }
     input[type="radio"] {
       width: 18px;
@@ -313,48 +315,33 @@
     .send-btn {
       background: #2B4A21;
       border: none;
-      padding: 16px;
+      padding: 14px;
       width: 100%;
-      border-radius: 60px;
+      border-radius: 50px;
       font-weight: 800;
       font-family: 'Inter', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #E4BD78;
       cursor: pointer;
-      margin-top: 18px;
-      transition: 0.2s;
-    }
-    .send-btn:hover:not(:disabled) {
-      background: #3a662d;
-      transform: translateY(-2px);
+      margin-top: 12px;
     }
     .send-btn:disabled {
       opacity: 0.6;
       cursor: not-allowed;
-      transform: none;
     }
     
     .status-message {
       text-align: center;
-      margin-top: 12px;
+      margin-top: 10px;
       font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 500;
-      padding: 8px;
-      border-radius: 40px;
+      padding: 6px;
+      border-radius: 30px;
     }
-    .status-loading {
-      color: #2B4A21;
-      background: rgba(43, 74, 33, 0.15);
-    }
-    .status-success {
-      color: #2B4A21;
-      background: rgba(43, 74, 33, 0.2);
-    }
-    .status-error {
-      color: #a11d1d;
-      background: rgba(161, 29, 29, 0.1);
-    }
+    .status-loading { color: #2B4A21; background: rgba(43,74,33,0.15); }
+    .status-success { color: #2B4A21; background: rgba(43,74,33,0.2); }
+    .status-error { color: #a11d1d; background: rgba(161,29,29,0.1); }
     
     .error-border {
       border-color: #d43f3f !important;
@@ -362,54 +349,17 @@
     }
     
     hr {
-      margin: 30px 0 16px;
+      margin: 20px 0 12px;
       border: 0;
       height: 2px;
       background: #2B4A21;
     }
     .footer-note {
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       font-weight: 500;
       color: #2B4A21;
       font-family: 'Inter', sans-serif;
-    }
-
-    @media (max-width: 720px) {
-      .wrapper {
-        padding: 16px;
-      }
-      .beige-card {
-        padding: 1.4rem;
-      }
-      .hero-image {
-        height: 280px;
-      }
-      .names-calligraphy h1 {
-        font-size: 2.8rem;
-      }
-      .ampersand {
-        font-size: 2.7rem;
-      }
-      .schedule-title {
-        font-size: 2rem;
-      }
-      .main-title {
-        font-size: 1.7rem;
-      }
-      .invite-text {
-        font-size: 1.3rem;
-        padding: 6px 20px;
-      }
-      .timer-num {
-        font-size: 2rem;
-      }
-      .dresscode-title {
-        font-size: 1.6rem;
-      }
-      .dresscode-text {
-        font-size: 1.1rem;
-      }
     }
   </style>
 </head>
@@ -452,7 +402,6 @@
       </div>
     </div>
 
-    <!-- ДРЕСС-КОД С УВЕЛИЧЕННЫМ ШРИФТОМ -->
     <div class="dresscode-card">
       <div class="dresscode-title">✨ Дресс-код ✨</div>
       <div class="dresscode-text">
@@ -477,23 +426,15 @@
         <div class="input-group">
           <label>Придете ли вы на церемонию? *</label>
           <div class="radio-group-vertical">
-            <div class="radio-row">
-              <label><input type="radio" name="ceremony" value="Да"> Да, буду на церемонии</label>
-            </div>
-            <div class="radio-row">
-              <label><input type="radio" name="ceremony" value="Нет"> Нет, не смогу прийти</label>
-            </div>
+            <div class="radio-row"><label><input type="radio" name="ceremony" value="Да"> Да, буду на церемонии</label></div>
+            <div class="radio-row"><label><input type="radio" name="ceremony" value="Нет"> Нет, не смогу прийти</label></div>
           </div>
         </div>
         <div class="input-group">
           <label>Придете ли вы на банкет? *</label>
           <div class="radio-group-vertical">
-            <div class="radio-row">
-              <label><input type="radio" name="banquet" value="Да"> Да, буду на банкете</label>
-            </div>
-            <div class="radio-row">
-              <label><input type="radio" name="banquet" value="Нет"> Нет, не смогу</label>
-            </div>
+            <div class="radio-row"><label><input type="radio" name="banquet" value="Да"> Да, буду на банкете</label></div>
+            <div class="radio-row"><label><input type="radio" name="banquet" value="Нет"> Нет, не смогу</label></div>
           </div>
         </div>
         <div class="input-group">
@@ -590,21 +531,20 @@
       if (container) {
         container.style.border = '1px solid #d43f3f';
         container.style.borderRadius = '12px';
-        container.style.padding = '8px';
+        container.style.padding = '6px';
       }
     } else if (fieldName === 'banquet') {
       const container = document.querySelector('input[name="banquet"]')?.closest('.radio-group-vertical');
       if (container) {
         container.style.border = '1px solid #d43f3f';
         container.style.borderRadius = '12px';
-        container.style.padding = '8px';
+        container.style.padding = '6px';
       }
     }
   }
   
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
     clearErrors();
     
     const fullname = document.getElementById('fullname').value.trim();
@@ -655,9 +595,7 @@
       await fetch(SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formData.toString()
       });
       
